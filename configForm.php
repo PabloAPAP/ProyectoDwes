@@ -13,7 +13,7 @@ una mayuscula, una minuscula y un numero.
  */
 define("VALIDA_PASSWORD", "/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}");
 
-/*
+/*VALIDA_EMAIL: 
 */
 define("VALIDA_EMAIL", "/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}");
 
