@@ -20,9 +20,9 @@
         Fecha de nacimiento:
         <input type="text" name="fechaNac"><br>
 
-        Suba una imagen de avatar:
+        Imagen de perfil:
         <input type="file" id="avatar" name="imagenAvatar" /><br />
-        <input type="submit" value="Enviar" name="submit" />
+        <input type="submit" value="Registrarse" name="submit" />
     </form>
 </body>
 
