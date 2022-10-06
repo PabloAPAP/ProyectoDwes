@@ -24,7 +24,7 @@ define("VALIDA_EMAIL", "/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}");
 
 PROBLEMAS: no tiene que coger años > actual. No 31 febrero, si 29 febrero..
 */
-define("VALIDA_FECHA_NAC", "");
+define("VALIDA_FECHA_NAC", "/([0-9]{2})\/([0-9]{2})\/([0-9]{4})");
 
 
 /* Funcion que valida que la fecha de nacimiento es correcta y valida, explode divide los registros en 3 valores y con checkdate verificamos que la fecha existe. */
