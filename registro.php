@@ -29,20 +29,20 @@ TODO ESTO ES UN COPIA PEGA TAL CUAL
     if (!empty($_POST)) {
         include_once 'funciones.php';
 
-        $nombreAp = htmlspecialchars($_POST["nombreApellidos"]);
+        $nombreAp = htmlspecialchars($_POST["nombreUsuario"]);
         $curso = htmlspecialchars($_POST["curso"]);
         $ciclo = htmlspecialchars($_POST["ciclo"]);
 
 
 
         if (!empty($nombreAp)) {
-            if (!validar("nombre", $nombreAp)) {
-                $_nombreApellidosErr = "No has escrito bien el nombre y apellidos";
+            if (!validar("nombreUsuario", $nombreAp)) {
+                $_nombreApellidosErr = "No has escrito bien el nombre de usuario";
             } else {
                 $_nombreApellidos = $nombreAp;
             }
         } else {
-            $_nombreApellidosErr =  "el campo nombre y apellidos no puede estar vacío";
+            $_nombreApellidosErr =  "el campo nombre de usuario no puede estar vacío";
         }
         if (!empty($ciclo)) {
             if (!validar("ciclo", $ciclo)) {
@@ -95,7 +95,7 @@ HASTA AQUI
 
 
     @Pablo on duty
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data">
+    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" >
         Nombre de Usuario:
         <input type="text" name="nombreUsuario"><br>
         Contraseña:
