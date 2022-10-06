@@ -18,57 +18,44 @@
 
 
 
-TODO ESTO ES UN COPIA PEGA TAL CUAL
+    TODO ESTO ES UN COPIA PEGA TAL CUAL
     <!-- Aqui arriba valido el formulario -->
     <?php
 
-    //Declaro las variables a utilizar
-    $_nombreApellidos = $_curso = $_ciclo = "";
-    $_nombreApellidosErr = $_cursoErr = $_cicloErr = "";
+    include 'funciones.php';
 
-    if (!empty($_POST)) {
-        include_once 'funciones.php';
+    // Variables
+    $nombreWEB = "HOLA CARACOLA";
+    $nombreUsuario = htmlspecialchars($_POST["nombreUsuario"]);
+    $password = htmlspecialchars($_POST["password"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $fechaNac = htmlspecialchars($_POST["fechaNac"]);
 
-        $nombreAp = htmlspecialchars($_POST["nombreUsuario"]);
-        $curso = htmlspecialchars($_POST["curso"]);
-        $ciclo = htmlspecialchars($_POST["ciclo"]);
-
-
-
-        if (!empty($nombreAp)) {
-            if (!validar("nombreUsuario", $nombreAp)) {
-                $_nombreApellidosErr = "No has escrito bien el nombre de usuario";
-            } else {
-                $_nombreApellidos = $nombreAp;
-            }
-        } else {
-            $_nombreApellidosErr =  "el campo nombre de usuario no puede estar vacío";
-        }
-        if (!empty($ciclo)) {
-            if (!validar("ciclo", $ciclo)) {
-                $_cicloErr = "El ciclo introducido no es ninguno de los válidos";
-            } else {
-                $_ciclo = $ciclo;
-            }
-        } else {
-            $_cicloErr =  "el campo ciclo no puede estar vacío";
-        }
-        if (!empty($curso)) {
-            if (!validar("curso", $curso)) {
-                $_cursoErr = "No has escrito bien el curso: 1º o 2º";
-            } else {
-                $_curso = $curso;
-            }
-        } else {
-
-            $_cursoErr =  "el campo curso no puede estar vacío";
-        }
-
-        if ($_nombreApellidos != "" && $_curso != "" && $_ciclo != "") {
-            //Muestro el mensaje final
-            echo "El alumno $_nombreApellidos está matriculado en el curso $_curso del ciclo $_ciclo";
+    // Compruebo que los campos no están vacíos y que validan
+    if (!empty($nombreUsuario) && !empty($password) && !empty($email) && !empty($fechaNac)) {
+        if (!validar($nombreAp, VALIDA_USUARIO)) {
+            echo "error de validación del nombre de usuario";
+            exit();
+        } elseif (!validar($curso, VALIDA_PASSWORD)) {
+            echo "error de validación del password";
+            exit();
+        } elseif (!validar($ciclo, VALIDA_EMAIL)) {
+            echo "error de validación del email";
+            exit();
+        } elseif (!validar($fechaNac, VALIDA_FECHA_NAC)) {
+            echo "error de validacion de fecha de nacimiento";
             exit();
         }
+    } else {
+        echo "Ningún campo puede estar vacío";
+        exit();
+    }
+
+    //Si todas las validaciones en forma son correctas, pasamos a validar la fecha de nacimiento con respecto al calendario.
+    if (validarFecha($fechaNac)) {
+        echo "Bienvenido a $nombreWEB";
+    } else {
+        exit();
     }
 
     ?>
@@ -77,29 +64,17 @@ TODO ESTO ES UN COPIA PEGA TAL CUAL
 
 
 
-HASTA AQUI
-
-
-
-
-
-
-
-
-
-
-
-
+    HASTA AQUI
 
 
 
 
     @Pablo on duty
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" >
+    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data">
         Nombre de Usuario:
         <input type="text" name="nombreUsuario"><br>
         Contraseña:
-         <input type="text" name="password"><br>
+        <input type="text" name="password"><br>
         eMail:
         <input type="text" name="email"><br>
         Fecha de nacimiento:
