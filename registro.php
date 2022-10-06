@@ -18,15 +18,11 @@
 
 
 
-    TODO ESTO ES UN COPIA PEGA TAL CUAL
+TODO ESTO ES UN COPIA PEGA TAL CUAL
     <!-- Aqui arriba valido el formulario -->
     <?php
 
-    $nombre = "";
-    $password = "";
-    $mail = "";
-    $fechaNac = "";
-
+    //Declaro las variables a utilizar
     $_nombreApellidos = $_curso = $_ciclo = "";
     $_nombreApellidosErr = $_cursoErr = $_cicloErr = "";
 
@@ -81,19 +77,11 @@
 
 
 
-    HASTA AQUI
+HASTA AQUI
 
 
 
-    <?php
-    //Variables
 
-    if (!empty(!$_POST)) {
-        echo "patatas";
-    }
-
-
-    ?>
 
 
 
@@ -111,7 +99,7 @@
         Nombre de Usuario:
         <input type="text" name="nombreUsuario"><br>
         Contraseña:
-        <input type="text" name="password"><br>
+         <input type="text" name="password"><br>
         eMail:
         <input type="text" name="email"><br>
         Fecha de nacimiento:
