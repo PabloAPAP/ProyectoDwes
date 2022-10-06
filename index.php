@@ -7,7 +7,7 @@
     <title>Proyecto Dwes</title>
 </head>
 <body>
- <A href = "registro.php">Acceso</A>
+ <A href = "login.php">Acceso</A>
 <A href = "registro.php">Registrarse</A>
 </body>
 </html>
