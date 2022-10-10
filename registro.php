@@ -54,6 +54,8 @@
         //Si todas las validaciones en forma son correctas, pasamos a validar la fecha de nacimiento con respecto al calendario.
         if (validarFecha($fechaNac)) {
             echo "Bienvenido a $nombreWEB";
+            header("Location: login.php");
+            exit();
         } else {
             echo "Solo puedes registrarte si tienes más de 14 años.";
             exit();
