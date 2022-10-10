@@ -30,16 +30,10 @@ function validar($datoAValidar, $expresionRegular)
  */
 /* Funcion que valida que la fecha de nacimiento es correcta y valida, explode divide los registros en 3 valores y con checkdate verificamos que la fecha existe. */
 function validarFecha($fecha)
-{
+{   if($fecha)
+    return true;
+    return false;
 
-    $valores = explode('/', $fecha);
-    if (count($valores) == 3 && checkdate($valores[1], $valores[0], $valores[2])) {
-        $resultado = true;
-    } else {
-        $resultado = false;
-    }
-    return $resultado;
 }
 
-?>
 ?>

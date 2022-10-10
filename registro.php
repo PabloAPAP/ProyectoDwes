@@ -33,16 +33,17 @@
 
         // Compruebo que los campos no están vacíos y que validan
         if (!empty($nombreUsuario) && !empty($password) && !empty($email) && !empty($fechaNac)) {
-            if (!validar($nombreAp, VALIDA_USUARIO)) {
+            if (!validar($nombreUsuario, VALIDA_USUARIO)) {
                 echo "error de validación del nombre de usuario";
                 exit();
-            } elseif (!validar($curso, VALIDA_PASSWORD)) {
+            } elseif (!validar($password, VALIDA_PASSWORD)) {
                 echo "error de validación del password";
                 exit();
-            } elseif (!validar($ciclo, VALIDA_EMAIL)) {
+            } elseif (!validar($email, VALIDA_EMAIL)) {
                 echo "error de validación del email";
                 exit();
             } elseif (!validar($fechaNac, VALIDA_FECHA_NAC)) {
+                echo $fechaNac;
                 echo "error de validacion de fecha de nacimiento";
                 exit();
             }
@@ -61,18 +62,18 @@
 
     ?>
 
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" >
+    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"])?>' method="post" enctype="multipart/form-data" >
         Nombre de Usuario:
-        <input type="text" name="nombreUsuario"><br>
+        <input type="text" name="nombreUsuario"><br><br>
         Contraseña:
-        <input type="text" name="password"><br>
+        <input type="password" name="password"><br><br>
         eMail:
-        <input type="text" name="email"><br>
+        <input type="text" name="email"><br><br>
         Fecha de nacimiento:
-        <input type="text" name="fechaNac"><br>
+        <input type="date" name="fechaNac"><br><br>
 
         Imagen de perfil:
-        <input type="file" id="avatar" name="imagenAvatar" /><br />
+        <input type="file" id="avatar" name="imagenAvatar" /><br><br>
         <input type="submit" value="Registrarse" name="submit" />
     </form>
 </body>
