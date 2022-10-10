@@ -10,11 +10,11 @@
 
 <body>
     <?php
-    $usuarioRegistrado = "pepe";//usuario temporal para probar que funciona
-    $passwordRegistado = "1234";//igual que arriba
+    $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
+    $passwordRegistado = "1234"; //igual que arriba
     $usuarioOk = "false";
     $passwordOk = "false";
-    
+
 
     if (!empty($_POST)) {
         $usuario = htmlspecialchars($_POST["usuario"]);
@@ -35,12 +35,12 @@
             exit();
         } else if ($password == $passwordRegistado) {
             $passwordOk = "true";
-        } else if ($password != $passwordRegistado){
+        } else if ($password != $passwordRegistado) {
             echo "Contraseña incorrecta";
             exit();
         }
 
-        if( $usuarioOk == "true" && $passwordOk == "true"){
+        if ($usuarioOk == "true" && $passwordOk == "true") {
             echo "Bienvenido $usuario";
         }
     }
