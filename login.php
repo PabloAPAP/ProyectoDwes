@@ -21,19 +21,23 @@
         $password = htmlspecialchars($_POST["password"]);
 
         if (empty($usuario)) {
-            echo "No ha introducido un nombre de usuario";
+            echo "No ha introducido un nombre de usuario ";
+            exit();
         } else if ($usuario == $usuarioRegistrado) {
             $usuarioOk = "true";
         } else if ($usuario != $usuarioRegistrado) {
             echo "Error, usuario no registrado";
+            exit();
         }
 
         if (empty($password)) {
             echo "No ha introducido una contraseña";
+            exit();
         } else if ($password == $passwordRegistado) {
             $passwordOk = "true";
         } else if ($password != $passwordRegistado){
             echo "Contraseña incorrecta";
+            exit();
         }
 
         if( $usuarioOk == "true" && $passwordOk == "true"){
