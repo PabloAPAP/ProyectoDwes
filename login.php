@@ -10,8 +10,8 @@
 
 <body>
     <?php
-    $usuarioRegistrado = "pepe";
-    $passwordRegistado = "1234";
+    $usuarioRegistrado = "pepe";//usuario temporal para probar que funciona
+    $passwordRegistado = "1234";//igual que arriba
     $usuarioOk = "false";
     $passwordOk = "false";
     
