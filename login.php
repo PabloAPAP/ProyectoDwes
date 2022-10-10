@@ -17,27 +17,27 @@
 
 
     if (!empty($_POST)) {
+
+        $_usuario_err ="";
+        $_password_err ="";
+
         $usuario = htmlspecialchars($_POST["usuario"]);
         $password = htmlspecialchars($_POST["password"]);
 
         if (empty($usuario)) {
-            echo "No ha introducido un nombre de usuario ";
-            exit();
+            $_usuario_err =  "No ha introducido un nombre de usuario";
         } else if ($usuario == $usuarioRegistrado) {
             $usuarioOk = "true";
         } else if ($usuario != $usuarioRegistrado) {
-            echo "Error, usuario no registrado";
-            exit();
+            $_usuario_err = "Error, usuario no registrado";
         }
 
         if (empty($password)) {
-            echo "No ha introducido una contraseña";
-            exit();
+            $_password_err = "No ha introducido una contraseña";
         } else if ($password == $passwordRegistado) {
             $passwordOk = "true";
-        } else if ($password != $passwordRegistado) {
-            echo "Contraseña incorrecta";
-            exit();
+        } else if ($password != $passwordRegistado){
+            $_password_err =  "Contraseña incorrecta";
         }
 
         if ($usuarioOk == "true" && $passwordOk == "true") {
@@ -48,9 +48,9 @@
 
 
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post">
-        Usuario: <input type="text" name="usuario">
+        Usuario: <input type="text" name="usuario"><span><?php echo $_nombreApellidos_err; ?></span>
         <br>
-        Contraseña: <input type="password" name="password">
+        Contraseña: <input type="password" name="password"><span><?php echo $_password_err; ?></span>
         <br>
         <input type="submit" value="acceso">
     </form>
