@@ -40,4 +40,13 @@ function validarFecha($fecha)
         echo "Menor de 14";
     }
     return true;
+=======
+/* Funcion que valida que la fecha de nacimiento es correcta y valida, explode divide los registros en 3 valores y con checkdate verificamos que la fecha existe. */
+function validarFecha($fecha){
+	$valores = explode('/', $fecha);
+	if(count($valores) == 3 && checkdate($valores[1], $valores[0], $valores[2])){
+		return true;
+    }
+	return false;
+>>>>>>> d8322be704ba22a9d2530fd67857e6dda5a7d168
 }
