@@ -25,13 +25,15 @@
         } else if ($usuario == $usuarioRegistrado) {
             $usuarioOk = "true";
         } else if ($usuario != $usuarioRegistrado) {
-            echo "error, usuario no registrado";
+            echo "Error, usuario no registrado";
         }
 
         if (empty($password)) {
             echo "No ha introducido una contraseña";
         } else if ($password == $passwordRegistado) {
             $passwordOk = "true";
+        } else if ($password != $passwordRegistado){
+            echo "Contraseña incorrecta"
         }
 
         if( $usuarioOk == "true" && $passwordOk == "true"){
