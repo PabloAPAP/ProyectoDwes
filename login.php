@@ -33,7 +33,7 @@
         } else if ($password == $passwordRegistado) {
             $passwordOk = "true";
         } else if ($password != $passwordRegistado){
-            echo "Contraseña incorrecta"
+            echo "Contraseña incorrecta";
         }
 
         if( $usuarioOk == "true" && $passwordOk == "true"){
