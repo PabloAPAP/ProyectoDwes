@@ -28,12 +28,16 @@ function validar($datoAValidar, $expresionRegular)
  * 
  * @return resultado true o false en funcion de si valida la fecha o no.
  */
-/* Funcion que valida que la fecha de nacimiento es correcta y valida, explode divide los registros en 3 valores y con checkdate verificamos que la fecha existe. */
 function validarFecha($fecha)
-{   if($fecha)
+{
+    $resultado = false;
+
+    if ($fecha > date('Y-m-d')) { //Fecha de nacimiento posterior a hoy
+        return $resultado;
+        echo "Fecha posterior";
+    }elseif($fecha> date("Y-m-d",strtotime($fecha."- 14 years"))){
+        return $resultado;
+        echo "Menor de 14";
+    }
     return true;
-    return false;
-
 }
-
-?>

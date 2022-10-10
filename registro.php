@@ -43,7 +43,6 @@
                 echo "error de validación del email";
                 exit();
             } elseif (!validar($fechaNac, VALIDA_FECHA_NAC)) {
-                echo $fechaNac;
                 echo "error de validacion de fecha de nacimiento";
                 exit();
             }
@@ -56,6 +55,7 @@
         if (validarFecha($fechaNac)) {
             echo "Bienvenido a $nombreWEB";
         } else {
+            echo "Solo puedes registrarte si tienes más de 14 años.";
             exit();
         }
     }
