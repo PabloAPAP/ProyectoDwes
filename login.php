@@ -10,17 +10,17 @@
 </head>
 
 <body>
-    <?php
+<?php
     $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
     $passwordRegistado = "1234"; //igual que arriba
     $usuarioOk = "false";
     $passwordOk = "false";
-
+    $_usuario_err ="";
+    $_password_err ="";
 
     if (!empty($_POST)) {
 
-        $_usuario_err ="";
-        $_password_err ="";
+       
 
         $usuario = htmlspecialchars($_POST["usuario"]);
         $password = htmlspecialchars($_POST["password"]);
@@ -46,16 +46,13 @@
         }
     }
     ?>
-
-
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
     <h1>Inicio de sesión</h1>
         <p>Nombre de usuario:</p>
-        <input type="text" name="nombreUsu" placeholder="Nombre de usuario">
+        <input type="text" name="usuario" placeholder="Nombre de usuario"><span><?php echo $_usuario_err   ; ?></span>
         <p>Contraseña:</p>
-        <input type="password" name="password" id="password" placeholder="Contraseña"><br>
-        <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Mostrar Contraseña</button>
-        <input type="submit" value="Acceder">
+        <input type="password" name="password" id="password" placeholder="Contraseña"><span><?php echo $_password_err; ?></span><br>
+        <input type="submit" value="acceso">
         <p><a href="registro.php">¿No tienes cuenta? Registrarse.</a></p> 
     </form>
 </body>
