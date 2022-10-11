@@ -59,21 +59,21 @@
 
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"])?>' method="post" enctype="multipart/form-data" class="login-form">
         <h1>Registrarse</h1>    
-        <p>Nombre de Usuario:</p>
+        <p>Nombre de Usuario</p>
         <input type="text" name="nombreUsuario">
         <span class="error">* <?php echo $nombreError; ?></span><br><br>
-        <p>Contraseña:</p> 
+        <p>Contraseña</p> 
         <input type="password" name="password">
         <span class="error">* <?php echo $passError; ?></span><br><br>
-        <p>Correo electrónico:</p>
+        <p>Correo electrónico</p>
         <input type="text" name="email"><span class="error">* <?php echo $emailError; ?></span>
         <br><br>
-        <p> Fecha de nacimiento:</p>
+        <p> Fecha de nacimiento</p>
         <input type="date" name="fechaNac">
         <span class="error">* <?php echo $fechaError; ?></span>
 <br><br>
 
-        Imagen de perfil:
+        <p>Imagen de perfil</p>
         <input type="file" id="avatar" name="imagenAvatar" />
         <span class="error">* <?php echo $imagenError; ?></span>
 <br><br>
