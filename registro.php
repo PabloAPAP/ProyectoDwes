@@ -45,7 +45,6 @@
             $nombreError = "El campo 'Nombre de usuario' no puede estar vacío";
         }
 
-<<<<<<< HEAD
         if (!empty($password)) {
             if (!validar($password, VALIDA_PASSWORD)) {
                 $passError = "El campo 'Contraseña' es incorrecto";
@@ -63,23 +62,6 @@
                 $algunError = true;
             } else {
                 $emailOK = $email;
-=======
-        //Valida que las contraseñas coinciden
-        
-        if ($_POST["password"]==$_POST["repassword"])
-        {
-
-        }else{
-            echo "Las contraseñas no coinciden";
-             exit();
-        }
-
-
-        //Si todas las validaciones en forma son correctas, pasamos a validar la fecha de nacimiento con respecto al calendario.
-            if (validarFecha($fechaNac)) {
-                echo "Bienvenido a $nombreWEB";
-                header("Location: login.php");
->>>>>>> 53f87963d219d72a545147ade8d420153f54e1d7
             }
         } else {
             $emailError = "El campo 'Correo electronico' no puede estar vacío";
@@ -105,7 +87,15 @@
             $algunError = true;
             $errorVacios = "Ningún campo puede estar vacío";
         }
-        //Valida que las contraseñas coinciden
+
+        //Si no hay errores entra al login.
+        if ($errorVacios) {
+            header("Location: login.php");
+        }
+    }
+
+    
+    /*Valida que las contraseñas coinciden
         
         if ($_POST["password"]==$_POST["repassword"])
         {
@@ -113,15 +103,7 @@
         }else{
             echo "Las contraseñas no coinciden";
              exit();
-        }
-
-
-        //Si todas las validaciones en forma son correctas, pasamos a validar la fecha de nacimiento con respecto al calendario.
-        if ($errorVacios) {
-            echo "Bienvenido a $nombreWEB";
-            header("Location: login.php");
-        }
-    }
+        }*/
 
     ?>
 
