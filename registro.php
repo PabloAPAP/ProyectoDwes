@@ -51,6 +51,17 @@
             exit();
         }
 
+        //Valida que las contraseñas coinciden
+        
+        if ($_POST["password"]==$_POST["repassword"])
+        {
+
+        }else{
+            echo "Las contraseñas no coinciden";
+             exit();
+        }
+
+
         //Si todas las validaciones en forma son correctas, pasamos a validar la fecha de nacimiento con respecto al calendario.
         if (validarFecha($fechaNac)) {
             echo "Bienvenido a $nombreWEB";
@@ -69,6 +80,8 @@
         <input type="text" name="nombreUsuario"><br><br>
         Contraseña:
         <input type="password" name="password"><br><br>
+        Confirmar contraseña:
+        <input type="password" name="repassword"><br><br>
         eMail:
         <input type="text" name="email"><br><br>
         Fecha de nacimiento:
