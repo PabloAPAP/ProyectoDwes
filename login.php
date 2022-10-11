@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Login</title>
 </head>
 
@@ -47,12 +48,15 @@
     ?>
 
 
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post">
-        Usuario: <input type="text" name="usuario"><span><?php echo $_nombreApellidos_err; ?></span>
-        <br>
-        Contraseña: <input type="password" name="password"><span><?php echo $_password_err; ?></span>
-        <br>
-        <input type="submit" value="acceso">
+    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
+    <h1>Inicio de sesión</h1>
+        <p>Nombre de usuario:</p>
+        <input type="text" name="nombreUsu" placeholder="Nombre de usuario">
+        <p>Contraseña:</p>
+        <input type="password" name="password" id="password" placeholder="Contraseña"><br>
+        <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Mostrar Contraseña</button>
+        <input type="submit" value="Acceder">
+        <p><a href="registro.php">¿No tienes cuenta? Registrarse.</a></p> 
     </form>
 </body>
 
