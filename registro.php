@@ -14,10 +14,12 @@
 
 
 
-    <!-- Aqui arriba valido el formulario -->
+    <!-- Validación del formulario -->
     <?php
 
     include 'funciones.php';
+    $nombreError = $passError = $emailError = $fechaError = $imagenError = $errorVacios = "";
+
     if (!empty($_POST)) {
 
         // Variables
@@ -27,24 +29,22 @@
         $email = htmlspecialchars($_POST["email"]);
         $fechaNac = htmlspecialchars($_POST["fechaNac"]);
 
-        // Compruebo que los campos no están vacíos y que validan
-        if (!empty($nombreUsuario) && !empty($password) && !empty($email) && !empty($fechaNac)) {
+
+        // Comprobamos que los campos no están vacíos y que validan
+        if (!empty($nombreUsuario) || !empty($password) || !empty($email) || !empty($fechaNac) || !empty($imagenAvatar)) {
             if (!validar($nombreUsuario, VALIDA_USUARIO)) {
-                echo "error de validación del nombre de usuario";
-                exit();
+                $nombreError = "El campo 'Nombre de usuario' no puede estar vacío";
             } elseif (!validar($password, VALIDA_PASSWORD)) {
-                echo "error de validación del password";
-                exit();
+                $passError = "El campo 'Contraseña' no puede estar vacío";
             } elseif (!validar($email, VALIDA_EMAIL)) {
-                echo "error de validación del email";
-                exit();
+                $emailError = "El campo 'eMail' no puede estar vacío";
             } elseif (!validar($fechaNac, VALIDA_FECHA_NAC)) {
-                echo "error de validacion de fecha de nacimiento";
-                exit();
+                $fechaError = "El campo 'Fecha de nacimiento' no puede estar vacío";
+            } elseif (empty($imagenAvatar)) {
+                $imagenError = "Tienes que seleccionar una foto de perfil";
             }
         } else {
-            echo "Ningún campo puede estar vacío";
-            exit();
+           // $errorVacios = "Ningun campo puede estar vacío";
         }
 
         //Valida que las contraseñas coinciden
@@ -59,14 +59,11 @@
 
 
         //Si todas las validaciones en forma son correctas, pasamos a validar la fecha de nacimiento con respecto al calendario.
-        if (validarFecha($fechaNac)) {
-            echo "Bienvenido a $nombreWEB";
-            header("Location: login.php");
-            exit();
-        } else {
-            echo "Solo puedes registrarte si tienes más de 14 años.";
-            exit();
-        }
+            if (validarFecha($fechaNac)) {
+                echo "Bienvenido a $nombreWEB";
+                header("Location: login.php");
+            }
+        
     }
 
     ?>
@@ -88,6 +85,7 @@
         <p>Imagen de perfil:</p> 
         <input type="file" id="avatar" name="imagenAvatar" /><br><br>
         <input type="submit" value="Registrarse" name="submit" />
+
     </form>
 </body>
 
