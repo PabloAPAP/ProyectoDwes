@@ -20,8 +20,6 @@
 
     if (!empty($_POST)) {
 
-       
-
         $usuario = htmlspecialchars($_POST["usuario"]);
         $password = htmlspecialchars($_POST["password"]);
 
