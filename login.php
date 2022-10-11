@@ -19,8 +19,6 @@
 
     if (!empty($_POST)) {
 
-       
-
         $usuario = htmlspecialchars($_POST["usuario"]);
         $password = htmlspecialchars($_POST["password"]);
 
@@ -48,7 +46,7 @@
 
 
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post">
-        Usuario: <input type="text" name="usuario"><span><?php echo $_usuario_err   ; ?></span>
+        Usuario: <input type="text" name="usuario"><span><?php echo $_usuario_err; ?></span>
         <br>
         Contraseña: <input type="password" name="password"><span><?php echo $_password_err; ?></span>
         <br>
