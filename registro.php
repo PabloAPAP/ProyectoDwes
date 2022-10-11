@@ -5,12 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <style>
-        .error {
-            color: #FF0000;
-        }
-    </style>
 </head>
 
 <body>
@@ -75,19 +71,21 @@
 
     ?>
 
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"])?>' method="post" enctype="multipart/form-data" >
-        Nombre de Usuario:
+    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"])?>' method="post" enctype="multipart/form-data" class="login-form">
+        <h1>Registrarse</h1>    
+        <p>Nombre de Usuario:</p>
         <input type="text" name="nombreUsuario"><br><br>
-        Contraseña:
+        <p>Contraseña:</p> 
         <input type="password" name="password"><br><br>
         Confirmar contraseña:
         <input type="password" name="repassword"><br><br>
         eMail:
+        <p>Correo electrónico:</p>
         <input type="text" name="email"><br><br>
-        Fecha de nacimiento:
+        <p> Fecha de nacimiento:</p>
         <input type="date" name="fechaNac"><br><br>
 
-        Imagen de perfil:
+        <p>Imagen de perfil:</p> 
         <input type="file" id="avatar" name="imagenAvatar" /><br><br>
         <input type="submit" value="Registrarse" name="submit" />
     </form>

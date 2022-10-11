@@ -5,21 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Login</title>
 </head>
 
 <body>
-    <?php
+<?php
     $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
     $passwordRegistado = "1234"; //igual que arriba
     $usuarioOk = "false";
     $passwordOk = "false";
-
+    $_usuario_err ="";
+    $_password_err ="";
 
     if (!empty($_POST)) {
-
-        $_usuario_err ="";
-        $_password_err ="";
 
         $usuario = htmlspecialchars($_POST["usuario"]);
         $password = htmlspecialchars($_POST["password"]);
@@ -45,14 +44,14 @@
         }
     }
     ?>
-
-
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post">
-        Usuario: <input type="text" name="usuario"><span><?php echo $_nombreApellidos_err; ?></span>
-        <br>
-        Contraseña: <input type="password" name="password"><span><?php echo $_password_err; ?></span>
-        <br>
+    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
+    <h1>Inicio de sesión</h1>
+        <p>Nombre de usuario:</p>
+        <input type="text" name="usuario" placeholder="Nombre de usuario"><span><?php echo $_usuario_err   ; ?></span>
+        <p>Contraseña:</p>
+        <input type="password" name="password" id="password" placeholder="Contraseña"><span><?php echo $_password_err; ?></span><br>
         <input type="submit" value="acceso">
+        <p><a href="registro.php">¿No tienes cuenta? Registrarse.</a></p> 
     </form>
 </body>
 
