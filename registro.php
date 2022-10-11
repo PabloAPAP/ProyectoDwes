@@ -5,12 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <style>
-        .error {
-            color: #FF0000;
-        }
-    </style>
 </head>
 
 <body>
@@ -61,28 +57,26 @@
 
     ?>
 
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data">
-        Nombre de Usuario
+    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"])?>' method="post" enctype="multipart/form-data" class="login-form">
+        <h1>Registrarse</h1>    
+        <p>Nombre de Usuario:</p>
         <input type="text" name="nombreUsuario">
-        <span class="error">* <?php echo $nombreError; ?></span>
-        <br><br>
-        Contraseña
+        <span class="error">* <?php echo $nombreError; ?></span><br><br>
+        <p>Contraseña:</p> 
         <input type="password" name="password">
-        <span class="error">* <?php echo $passError; ?></span>
+        <span class="error">* <?php echo $passError; ?></span><br><br>
+        <p>Correo electrónico:</p>
+        <input type="text" name="email"><span class="error">* <?php echo $emailError; ?></span>
         <br><br>
-        eMail
-        <input type="text" name="email">
-        <span class="error">* <?php echo $emailError; ?></span>
-        <br><br>
-        Fecha de nacimiento
+        <p> Fecha de nacimiento:</p>
         <input type="date" name="fechaNac">
         <span class="error">* <?php echo $fechaError; ?></span>
-        <br><br>
+<br><br>
 
-        Imagen de perfil
+        Imagen de perfil:
         <input type="file" id="avatar" name="imagenAvatar" />
         <span class="error">* <?php echo $imagenError; ?></span>
-        <br><br>
+<br><br>
         <input type="submit" value="Registrarse" name="submit" />
 
     </form>
