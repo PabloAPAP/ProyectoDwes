@@ -83,13 +83,13 @@
             $algunError = true;
         }else
 
-        if (!empty($nombreUsuario) && !empty($password) && !empty($email) && !empty($fechaNac) && !empty($imagenAvatar)) {
+        if (empty($nombreUsuario) || empty($password) || empty($email) || empty($fechaNac) || empty($imagenAvatar)) {
             $algunError = true;
             $errorVacios = "Ningún campo puede estar vacío";
         }
 
         //Si no hay errores entra al login.
-        if ($errorVacios) {
+        if (!$algunError) {
             header("Location: login.php");
         }
     }
@@ -133,7 +133,9 @@
         <input type="file" id="avatar" name="imagenAvatar">
 
         <br><br>
-        <input type="submit" value="Registrarse" name="submit" />
+        <input type="submit" value="Registrarse" name="submit"/>
+        <span class="error"><?php echo $errorVacios; ?></span>
+
 
     </form>
 </body>
