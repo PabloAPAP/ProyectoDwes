@@ -7,7 +7,7 @@
     color: #FF0000;
 }
 body{
-    background: url('fondo-formulario.jpg'); 
+    background: url('../media/fondo-formulario.jpg'); 
     background-repeat: no-repeat;
     /*Centramos el fondo al centro*/
     background-position: center center;

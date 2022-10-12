@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Login</title>
 </head>
 
 <body>
 <?php
     $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
-    $passwordRegistado = "1234"; //igual que arriba
+    $passwordRegistado = "1234"; //contraseña temporal para probar que funciona
     $usuarioOk = "false";
     $passwordOk = "false";
     $_usuario_err ="";
