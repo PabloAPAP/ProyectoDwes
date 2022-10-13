@@ -30,18 +30,26 @@ function validar($datoAValidar, $expresionRegular)
  */
 function validarFecha($fecha)
 {
-    $resultado = false;
-    $valores = explode('/', $fecha);
+    $resultado =true; 
+    
+    //Transformamos el string a DateTime
+    $fechaActual = new DateTime(date("Y-m-d"));
+    $fechaNacimiento = new DateTime($fecha);
+    $anios = $fechaActual->diff($fechaNacimiento)->y;
 
-    if (count($valores) == 3 && checkdate($valores[1], $valores[0], $valores[2])) {
-        if ($fecha > date('Y-m-d')) { //Fecha de nacimiento posterior a hoy
+    //Si contiene una fecha entra por aqui.    
+    if (strlen($fecha)>0) {
+        if ($fechaNacimiento > $fechaActual) { //Fecha de nacimiento posterior a hoy
+        $resultado = false;
             return $resultado;
-            echo "Fecha posterior";
-        } elseif ($fecha > date("Y-m-d", strtotime($fecha . "- 14 years"))) {
-            return $resultado;
-            echo "Menor de 14";
+        }elseif($anios<14){
+        $resultado = false;
+        return $resultado;
         }
+    }else{ //Si no contiene fecha entra por aquí
+        $resultado = false;
+        return $resultado;
     }
 
-    return true;
+    return $resultado;
 }

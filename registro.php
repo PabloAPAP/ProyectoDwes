@@ -19,7 +19,7 @@
 
     include 'funciones.php';
     $nombreError = $passError = $emailError = $fechaError = $imagenError = $errorVacios = "";
-    $nombreUsuarioOK = $passwordOK = $emailOK = $fechaNacOK = "";
+    $nombreUsuarioOK = $passwordOK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
 
     if (!empty($_POST)) {
 
@@ -30,7 +30,8 @@
         $password = htmlspecialchars($_POST["password"]);
         $email = htmlspecialchars($_POST["email"]);
         $fechaNac = htmlspecialchars($_POST["fechaNac"]);
-        $imagenAvatar = $_FILES["imagenAvatar"];
+        $tamañoAvatar = $_FILES["imagenAvatar"]['size'];
+        $imagenAvatar = $_FILES["imagenAvatar"]['name'];
 
 
         // Comprobamos que los campos no están vacíos y que validan
@@ -67,23 +68,21 @@
             $emailError = "El campo 'Correo electronico' no puede estar vacío";
         }
 
-        if (!empty($fechaNac)) {
-            if (!validar($fechaNac, VALIDA_FECHA_NAC)) {
-                $fechaError = "El campo 'Fecha de nacimiento' es incorrecto";
+        if (!validarFecha($fechaNac)) {
+                $fechaError = "La edad mínima para registrarse son 14 años";
                 $algunError = true;
-            } else {
-                $fechaNacOK = $fechaNac;
-            }
         } else {
-            $fechaError = "El campo 'Fecha de nacimiento' no puede estar vacío";
+                $fechaNacOK = $fechaNac;
         }
-
-        if (empty($imagenAvatar)) {
+        
+        if ($tamañoAvatar==0) {
             $imagenError = "Tienes que seleccionar una foto de perfil";
             $algunError = true;
-        }else
+        }{
+            $imagenAvatar = $imagenAvatarOK;
+        }
 
-        if (empty($nombreUsuario) || empty($password) || empty($email) || empty($fechaNac) || empty($imagenAvatar)) {
+       if (empty($nombreUsuario)&& empty($password) && empty($email) && empty($fechaNac) && empty($imagenAvatar)) {
             $algunError = true;
             $errorVacios = "Ningún campo puede estar vacío";
         }
@@ -93,7 +92,6 @@
             header("Location: login.php");
         }
     }
-
     
     /*Valida que las contraseñas coinciden
         
@@ -130,7 +128,7 @@
 
         <p>Imagen de perfil <span class="error"> *</span></p>
         <span class="error"><?php echo $imagenError; ?></span>
-        <input type="file" id="avatar" name="imagenAvatar">
+        <input type="file" id="avatar" name="imagenAvatar" accept="image/png, image/gif, image/jpeg" value="<?php echo $imagenAvatarOK; ?>" />
 
         <br><br>
         <input type="submit" value="Registrarse" name="submit"/>
