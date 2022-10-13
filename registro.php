@@ -69,24 +69,20 @@
         }
 
         if (!validarFecha($fechaNac)) {
-                $fechaError = "La edad mínima para registrarse son 14 años";
-                $algunError = true;
+            $fechaError = "La edad mínima para registrarse son 14 años";
+            $algunError = true;
         } else {
-                $fechaNacOK = $fechaNac;
+            $fechaNacOK = $fechaNac;
         }
-        
-        if ($tamañoAvatar==0) {
+
+        if ($tamañoAvatar == 0) {
             $imagenError = "Tienes que seleccionar una foto de perfil";
             $algunError = true;
-        } elseif ($tamañoAvatar>500) {
-            $imagenError = "El tamaño del archivo es demasiado grande, tamaño max. 500Kb";
-            $algunError = true;
-        }
-        else{
+        } else {
             $imagenAvatar = $imagenAvatarOK;
         }
 
-       if (empty($nombreUsuario)&& empty($password) && empty($email) && empty($fechaNac) && empty($imagenAvatar)) {
+        if (empty($nombreUsuario) && empty($password) && empty($email) && empty($fechaNac) && empty($imagenAvatar)) {
             $algunError = true;
             $errorVacios = "Ningún campo puede estar vacío";
         }
@@ -96,7 +92,7 @@
             header("Location: login.php");
         }
     }
-    
+
     /*Valida que las contraseñas coinciden
         
         if ($_POST["password"]==$_POST["repassword"])
@@ -135,7 +131,7 @@
         <input type="file" id="avatar" name="imagenAvatar" accept="image/png, image/gif, image/jpeg" value="<?php echo $imagenAvatarOK; ?>" />
 
         <br><br>
-        <input type="submit" value="Registrarse" name="submit"/>
+        <input type="submit" value="Registrarse" name="submit" />
         <span class="error"><?php echo $errorVacios; ?></span>
 
 
