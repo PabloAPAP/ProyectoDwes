@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Login</title>
+    <title>Iniciar sesion</title>
 </head>
 
 <body>
@@ -48,8 +48,7 @@
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
     <h1>Inicio de sesión</h1>
         <p>Nombre de usuario:</p>
-        <input type="text" name="usuario" placeholder="Nombre de usuario"><span  class="error"><?php echo $_usuario_err   ; ?></span>
-
+        <input type="text" name="usuario" placeholder="Nombre de usuario"><span class="error"><?php echo $_usuario_err   ; ?></span>
         <p>Contraseña:</p>
         <input type="password" name="password" id="password" placeholder="Contraseña"><span class="error"><?php echo $_password_err; ?></span><br>
         <input type="submit" value="Acceder">
