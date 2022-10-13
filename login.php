@@ -18,6 +18,7 @@
     $_usuario_err ="";
     $_password_err ="";
     $_usuPassOK="";
+    $_registro = "";
 
     if (!empty($_POST)) {
 
@@ -43,6 +44,9 @@
         if ($usuarioOk == "true" && $passwordOk == "true") {
             $_usuPassOK ="<h1>Bienvenido $usuario</h1>";
         }
+        else{
+            $_registro = "<p><a href="registro.php">¿No tienes cuenta? Regístrate.</a></p>";
+        }
     }
     ?>
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
@@ -52,8 +56,8 @@
         <p>Contraseña:</p>
         <input type="password" name="password" id="password" placeholder="Contraseña"><span class="error"><?php echo $_password_err; ?></span><br>
         <input type="submit" value="Acceder">
-        <?php echo $_usuPassOK; ?>
-        <p><a href="registro.php">¿No tienes cuenta? Regístrate.</a></p> 
+        <?php echo $_usuPassOK; ?>        
+        <?php echo $_registro; ?>
     </form>
 </body>
 
