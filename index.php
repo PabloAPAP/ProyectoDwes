@@ -22,7 +22,7 @@
 <body>
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
         <button onclick="window.open('login.php')">Iniciar Sesión</button>
-        <button onclick="window.open('registro.php')">registrarse</button>
+        <button onclick="window.open('registro.php')">Registrarse</button>
     </form>
 </body>
 

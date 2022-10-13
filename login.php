@@ -25,34 +25,35 @@
         $password = htmlspecialchars($_POST["password"]);
 
         if (empty($usuario)) {
-            $_usuario_err =  "No ha introducido un nombre de usuario";
+            $_usuario_err =  "<p>No ha introducido un nombre de usuario</p>";
         } else if ($usuario == $usuarioRegistrado) {
             $usuarioOk = "true";
         } else if ($usuario != $usuarioRegistrado) {
-            $_usuario_err = "Error, usuario no registrado";
+            $_usuario_err = "<p>Error, usuario no registrado</p>";
         }
 
         if (empty($password)) {
-            $_password_err = "No ha introducido una contraseña";
+            $_password_err = "<p>No ha introducido una contraseña</p>";
         } else if ($password == $passwordRegistado) {
             $passwordOk = "true";
         } else if ($password != $passwordRegistado){
-            $_password_err =  "Contraseña incorrecta";
+            $_password_err =  "<p>Contraseña incorrecta</p>";
         }
 
         if ($usuarioOk == "true" && $passwordOk == "true") {
-            $_usuPassOK ="Bienvenido $usuario";
+            $_usuPassOK ="<h1>Bienvenido $usuario</h1>";
         }
     }
     ?>
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
     <h1>Inicio de sesión</h1>
         <p>Nombre de usuario:</p>
-        <input type="text" name="usuario" placeholder="Nombre de usuario"><span><?php echo $_usuario_err   ; ?></span>
+        <input type="text" name="usuario" placeholder="Nombre de usuario"><span  class="error"><?php echo $_usuario_err   ; ?></span>
+
         <p>Contraseña:</p>
-        <input type="password" name="password" id="password" placeholder="Contraseña"><span><?php echo $_password_err; ?></span><br>
+        <input type="password" name="password" id="password" placeholder="Contraseña"><span class="error"><?php echo $_password_err; ?></span><br>
         <input type="submit" value="Acceder">
-        <h1><?php echo $_usuPassOK; ?></h1>
+        <?php echo $_usuPassOK; ?>
         <p><a href="registro.php">¿No tienes cuenta? Regístrate.</a></p> 
     </form>
 </body>
