@@ -50,8 +50,8 @@
         <input type="text" name="usuario" placeholder="Nombre de usuario"><span><?php echo $_usuario_err   ; ?></span>
         <p>Contraseña:</p>
         <input type="password" name="password" id="password" placeholder="Contraseña"><span><?php echo $_password_err; ?></span><br>
-        <input type="submit" value="acceso">
-        <p><a href="registro.php">¿No tienes cuenta? Registrarse.</a></p> 
+        <input type="submit" value="Acceder">
+        <p><a href="registro.php">¿No tienes cuenta? Regístrate.</a></p> 
     </form>
 </body>
 
