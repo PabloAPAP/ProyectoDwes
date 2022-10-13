@@ -17,6 +17,7 @@
     $passwordOk = "false";
     $_usuario_err ="";
     $_password_err ="";
+    $_usuPassOK="";
 
     if (!empty($_POST)) {
 
@@ -40,7 +41,7 @@
         }
 
         if ($usuarioOk == "true" && $passwordOk == "true") {
-            echo "Bienvenido $usuario";
+            $_usuPassOK ="Bienvenido $usuario";
         }
     }
     ?>
@@ -51,6 +52,7 @@
         <p>Contraseña:</p>
         <input type="password" name="password" id="password" placeholder="Contraseña"><span><?php echo $_password_err; ?></span><br>
         <input type="submit" value="Acceder">
+        <h1><?php echo $_usuPassOK; ?></h1>
         <p><a href="registro.php">¿No tienes cuenta? Regístrate.</a></p> 
     </form>
 </body>
