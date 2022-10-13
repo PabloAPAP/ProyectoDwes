@@ -78,7 +78,11 @@
         if ($tamañoAvatar==0) {
             $imagenError = "Tienes que seleccionar una foto de perfil";
             $algunError = true;
-        }{
+        } elseif ($tamañoAvatar>500) {
+            $imagenError = "El tamaño del archivo es demasiado grande, tamaño max. 500Kb";
+            $algunError = true;
+        }
+        else{
             $imagenAvatar = $imagenAvatarOK;
         }
 
