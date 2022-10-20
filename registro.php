@@ -6,17 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Registrarse</title>
+    <title>Regístrate</title>
 </head>
 
 <body>
-<!-- Validación del formulario -->
+    <!-- Validación del formulario -->
     <?php
 
-    include 'funciones.php';
-    $nombreError = $passError = $emailError = $fechaError = $imagenError = $errorVacios = "";
-    $nombreUsuarioOK = $passwordOK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
-
+    include 'scripts/funciones.php';
+    $exito = $nombreError =  $passError = $pass2Error = $emailError = $fechaError = $imagenError = $errorVacios = "";
+    $nombreUsuarioOK = $passwordOK = $password2OK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
     if (!empty($_POST)) {
 
         $algunError = false;
@@ -24,6 +23,7 @@
         // Variables
         $nombreUsuario = htmlspecialchars($_POST["nombreUsuario"]);
         $password = htmlspecialchars($_POST["password"]);
+        $password2 = htmlspecialchars($_POST["password2"]);
         $email = htmlspecialchars($_POST["email"]);
         $fechaNac = htmlspecialchars($_POST["fechaNac"]);
         $tamañoAvatar = $_FILES["imagenAvatar"]['size'];
@@ -44,13 +44,24 @@
 
         if (!empty($password)) {
             if (!validar($password, VALIDA_PASSWORD)) {
-                $passError = "El campo 'Contraseña' es incorrecto";
+                $passError = "La contraseña debe contener mayúsculas, minúsculas y números. Al menos 8 caracteres";
                 $algunError = true;
             } else {
                 $passwordOK = $password;
             }
         } else {
             $passError = "El campo 'Contraseña' no puede estar vacío";
+        }
+
+        if (!empty($password2)) {
+            if ($password == $password2) {
+                $password2OK  = $password2;
+            } else {
+                $pass2Error = "Las contraseñas no coinciden";
+                $algunError = true;
+            }
+        } else {
+            $pass2Error  = "El campo 'Repite la constraseña' no puede estar vacío";
         }
 
         if (!empty($email)) {
@@ -85,6 +96,8 @@
 
         //Si no hay errores entra al login.
         if (!$algunError) {
+            $exito = "Te has registrado con exito";
+            sleep(2);
             header("Location: login.php");
         }
     }
@@ -99,6 +112,11 @@
         <p>Contraseña <span class="error"> * </span></p>
         <span class="error"><?php echo $passError; ?></span>
         <input type="password" name="password" value="<?php echo $passwordOK; ?>">
+        </span><br><br>
+
+        <p>Repite la contraseña <span class="error"> * </span></p>
+        <span class="error"><?php echo $pass2Error; ?></span>
+        <input type="password" name="password2" value="<?php echo $password2OK; ?>">
         </span><br><br>
 
         <p>Correo electrónico <span class="error"> *</span></p>
@@ -118,7 +136,8 @@
         <br><br>
         <input type="submit" value="Registrarse" name="submit" />
         <span class="error"><?php echo $errorVacios; ?></span>
-
+        <span><?php echo $exito; ?></span>
+        <br><br>
 
     </form>
 </body>
