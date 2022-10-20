@@ -26,5 +26,6 @@
     </form>
     
 </body>
+<!--esto es para el boton de dia/noche-->
 <script src="index.js"></script>
 </html>

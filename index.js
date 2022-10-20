@@ -1,3 +1,5 @@
+
+//scripts para el boton dia/noche
 /*Si clicamos en el botón del sol, borrarémos la clase css dark-mode del div 
 con id page y se aplicará el estilo active al sol*/
 document.getElementById('id-sun').onclick = function(){
