@@ -88,21 +88,6 @@
             header("Location: login.php");
         }
     }
-
-<<<<<<< HEAD
-    
-=======
-    /*Valida que las contraseñas coinciden
-        
-        if ($_POST["password"]==$_POST["repassword"])
-        {
-
-        }else{
-            echo "Las contraseñas no coinciden";
-             exit();
-        }*/
-
->>>>>>> b602a26db1400c50f2d2251c28c5416017fc54b6
     ?>
 
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">

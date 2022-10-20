@@ -1,0 +1,20 @@
+El código podría estar mucho más comentado. No habéis limpiado de código antiguo comentado. (0,2/1 puntos)
+login.php de true y false como cadenas de texto.
+No validáis el archivo subido por el usuario ni lo almacenáis en ningún otro lado utilizable.
+No utilizáis comprobación de contraseña en el registro. Boton mostrar contraseña. Repetir contraseña
+No dais feedback al usuario de que se ha registrado con éxito.
+En la función de validar fecha podéis utilizar sólo una vez el return (al final) y asignar a false o true solamente en las diferentes bifurcaciones del código.
+
+
+ACTUAL
+
+almacenar informacion usuario en fichero en servidor. Fichero protegido
+Validar login contra el fichero.
+Cargar informacion usuario sesion
+colores  e idioma cookies
+Si ha hecho login mostrar boton logout, si no login
+index.php idiomas y modos luces
+
+
+
+
