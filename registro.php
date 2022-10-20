@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Registrarse</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 
     include 'funciones.php';
     $nombreError = $passError = $emailError = $fechaError = $imagenError = $errorVacios = "";
-    $nombreUsuarioOK = $passwordOK = $emailOK = $fechaNacOK = "";
+    $nombreUsuarioOK = $passwordOK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
 
     if (!empty($_POST)) {
 
@@ -26,7 +26,8 @@
         $password = htmlspecialchars($_POST["password"]);
         $email = htmlspecialchars($_POST["email"]);
         $fechaNac = htmlspecialchars($_POST["fechaNac"]);
-        $imagenAvatar = $_FILES["imagenAvatar"];
+        $tamañoAvatar = $_FILES["imagenAvatar"]['size'];
+        $imagenAvatar = $_FILES["imagenAvatar"]['name'];
 
 
         // Comprobamos que los campos no están vacíos y que validan
@@ -63,23 +64,21 @@
             $emailError = "El campo 'Correo electronico' no puede estar vacío";
         }
 
-        if (!empty($fechaNac)) {
-            if (!validar($fechaNac, VALIDA_FECHA_NAC)) {
-                $fechaError = "El campo 'Fecha de nacimiento' es incorrecto";
-                $algunError = true;
-            } else {
-                $fechaNacOK = $fechaNac;
-            }
+        if (!validarFecha($fechaNac)) {
+            $fechaError = "La edad mínima para registrarse son 14 años";
+            $algunError = true;
         } else {
-            $fechaError = "El campo 'Fecha de nacimiento' no puede estar vacío";
+            $fechaNacOK = $fechaNac;
         }
 
-        if (empty($imagenAvatar)) {
+        if ($tamañoAvatar == 0) {
             $imagenError = "Tienes que seleccionar una foto de perfil";
             $algunError = true;
-        }else
+        } else {
+            $imagenAvatar = $imagenAvatarOK;
+        }
 
-        if (empty($nombreUsuario) || empty($password) || empty($email) || empty($fechaNac) || empty($imagenAvatar)) {
+        if (empty($nombreUsuario) && empty($password) && empty($email) && empty($fechaNac) && empty($imagenAvatar)) {
             $algunError = true;
             $errorVacios = "Ningún campo puede estar vacío";
         }
@@ -90,7 +89,20 @@
         }
     }
 
+<<<<<<< HEAD
     
+=======
+    /*Valida que las contraseñas coinciden
+        
+        if ($_POST["password"]==$_POST["repassword"])
+        {
+
+        }else{
+            echo "Las contraseñas no coinciden";
+             exit();
+        }*/
+
+>>>>>>> b602a26db1400c50f2d2251c28c5416017fc54b6
     ?>
 
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">
@@ -116,10 +128,10 @@
 
         <p>Imagen de perfil <span class="error"> *</span></p>
         <span class="error"><?php echo $imagenError; ?></span>
-        <input type="file" id="avatar" name="imagenAvatar">
+        <input type="file" id="avatar" name="imagenAvatar" accept="image/png, image/gif, image/jpeg" value="<?php echo $imagenAvatarOK; ?>" />
 
         <br><br>
-        <input type="submit" value="Registrarse" name="submit"/>
+        <input type="submit" value="Registrarse" name="submit" />
         <span class="error"><?php echo $errorVacios; ?></span>
 
 
