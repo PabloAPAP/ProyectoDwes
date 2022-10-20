@@ -1,6 +1,8 @@
 El código podría estar mucho más comentado.
 No habéis limpiado de código antiguo comentado.
 **login.php de true y false como cadenas de texto.
+El código podría estar mucho más comentado. No habéis limpiado de código antiguo comentado. (0,2/1 puntos)
+login.php de true y false como cadenas de texto en vez de booleanos.
 No validáis el archivo subido por el usuario ni lo almacenáis en ningún otro lado utilizable.
 **No utilizáis comprobación de contraseña en el registro.Repetir contraseña
 Boton mostrar contraseña. 
@@ -16,6 +18,9 @@ Cargar informacion usuario sesion
 colores  e idioma cookies
 Si ha hecho login mostrar boton logout, si no login
 index.php idiomas y modos luces
+revisar fichero de usuarios para confirmar que el nuevo registo no tiene un nombre en uso
+
+tema claro/oscuro : https://www.nigmacode.com/diseno-web/crear-modo-nocturno-en-una-web/
 
 
 PROBLEMAS

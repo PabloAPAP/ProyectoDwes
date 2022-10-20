@@ -11,10 +11,20 @@
 </head>
 
 <body>
+    <div class="container-btn-mode">
+        <div id="id-sun" class="btn-mode sun active">
+            <i class="fas fa-sun"></i>
+        </div>
+        <div id="id-moon" class="btn-mode moon">
+            <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
         <button onclick="window.open('login.php')">Iniciar Sesión</button>
         <button onclick="window.open('registro.php')">Registrarse</button>
     </form>
+    
 </body>
-
+<script src="index.js"></script>
 </html>
