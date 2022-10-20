@@ -10,11 +10,7 @@
 </head>
 
 <body>
-
-
-
-
-    <!-- Validación del formulario -->
+<!-- Validación del formulario -->
     <?php
 
     include 'funciones.php';
@@ -95,16 +91,6 @@
     }
 
     
-    /*Valida que las contraseñas coinciden
-        
-        if ($_POST["password"]==$_POST["repassword"])
-        {
-
-        }else{
-            echo "Las contraseñas no coinciden";
-             exit();
-        }*/
-
     ?>
 
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">
