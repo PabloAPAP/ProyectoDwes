@@ -7,7 +7,7 @@
     color: #FF0000;
 }
 body{
-    background: url('fondo-formulario.jpg'); 
+    background: url('../media/fondo-formulario.jpg'); 
     background-repeat: no-repeat;
     /*Centramos el fondo al centro*/
     background-position: center center;
@@ -72,4 +72,17 @@ body{
     color: white;
     margin: 16px 0;
     font-size: 16px;
+}
+
+form button{
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+input{
+    color:white;
 }
