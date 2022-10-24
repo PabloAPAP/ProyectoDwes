@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Regístrate</title>
 </head>
 
@@ -21,7 +24,7 @@
 
         // Variables
         $nombreUsuario = htmlspecialchars($_POST["nombreUsuario"]);
-        $password = htmlspecialchars($_POST["password"]);
+        $password = htmlspecialchars($_POST["password1"]);
         $password2 = htmlspecialchars($_POST["password2"]);
         $email = htmlspecialchars($_POST["email"]);
         $fechaNac = htmlspecialchars($_POST["fechaNac"]);
@@ -123,16 +126,24 @@
         <p>Nombre de Usuario *</p>
         <span class="error"><?php echo $nombreError; ?></span>
         <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
-
         <p>Contraseña *</p>
+        <div class="btnAlinear">
+        
         <span class="error"><?php echo $passError; ?></span>
-        <input type="password" name="password" value="<?php echo $passwordOK; ?>">
-        </span><br><br>
+        
+            <input type="password" class="form-control mb-0" id="password1" value="<?php echo $passwordOK; ?>">
+            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+        </div>
+
+        <br>
 
         <p>Repite la contraseña *</p>
         <span class="error"><?php echo $pass2Error; ?></span>
-        <input type="password" name="password2" value="<?php echo $password2OK; ?>">
-        </span><br><br>
+        <div class="btnAlinear">
+            <input type="password" class="form-control mb-0" id="password2" value="<?php echo $password2OK; ?>">
+            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword2()"> <span class="fa fa-eye-slash icon"></span> </button>
+        </div>
+        <br>
 
         <p>Correo electrónico *</p>
         <span class="error"><?php echo $emailError; ?></span>
@@ -157,6 +168,23 @@
         <br><br>
 
     </form>
+
+    <script type="text/javascript">
+        function mostrarPassword() {
+            var cambio = document.getElementById("password1");
+            var cambio2 = document.getElementById("password2");
+            if (cambio.type == "password") {
+                cambio.type = "text";
+                cambio2.type = "text";
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            } else {
+                cambio.type = "password";
+                cambio2.type = "password";
+                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
+    </script>
+
 </body>
 
 </html>
