@@ -128,18 +128,13 @@
             <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
         </div>
 
-
-
-
-
-
         <br>
 
         <p>Repite la contraseña *</p>
         <span class="error"><?php echo $pass2Error; ?></span>
         <div class="btnAlinear">
             <input type="password" class="form-control mb-0" id="password2" value="<?php echo $password2OK; ?>">
-            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword2()"> <span class="fa fa-eye-slash icon"></span> </button>
         </div>
         <br>
 
@@ -169,22 +164,18 @@
 
     <script type="text/javascript">
         function mostrarPassword() {
-            var cambio = document.getElementById("password?");
+            var cambio = document.getElementById("password1");
+            var cambio2 = document.getElementById("password2");
             if (cambio.type == "password") {
                 cambio.type = "text";
+                cambio2.type = "text";
                 $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
             } else {
                 cambio.type = "password";
+                cambio2.type = "password";
                 $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
             }
         }
-
-        $(document).ready(function() {
-            //CheckBox mostrar contraseña
-            $('#ShowPassword').click(function() {
-                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-            });
-        });
     </script>
 
 </body>
