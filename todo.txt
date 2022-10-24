@@ -1,7 +1,7 @@
 El código podría estar mucho más comentado.
 No habéis limpiado de código antiguo comentado.
 **login.php de true y false como cadenas de texto.
-No validáis el archivo subido por el usuario ni lo almacenáis en ningún otro lado utilizable.
+**No validáis el archivo subido por el usuario ni lo almacenáis en ningún otro lado utilizable.
 **No utilizáis comprobación de contraseña en el registro.Repetir contraseña
 Boton mostrar contraseña. 
 No dais feedback al usuario de que se ha registrado con éxito.
