@@ -7,6 +7,21 @@
 .error {
     color: #FF0000;
 }
+
+.btnAlinear{
+    line-height: 0px;
+  display:flex;
+  align-items:Center;
+}
+
+.btnMostrar{
+width: 10%;
+border-radius: 4px;
+background:#24303c;
+
+
+}
+
 body{
     background: url('../media/fondo-formulario.jpg'); 
     background-repeat: no-repeat;
