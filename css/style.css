@@ -88,7 +88,7 @@ input{
     color:white;
 }
 
-/*PAR*/
+/*INICIO BOTON DE DIA/NOCHE*/
 .container-btn-mode{
     position: absolute;
     top:20px;
@@ -139,3 +139,5 @@ input{
     border:1px solid white;
     color:white;
   }
+
+  /*FIN BOTON DIA/NOCHE*/
