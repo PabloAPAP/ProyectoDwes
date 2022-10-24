@@ -17,7 +17,6 @@
     $nombreError =  $passError = $pass2Error = $emailError = $fechaError = $imagenError = $errorVacios = "";
     $nombreUsuarioOK = $passwordOK = $password2OK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
     if (!empty($_POST)) {
-
         $algunError = false;
 
         // Variables
@@ -30,10 +29,20 @@
 
         // Comprobamos que los campos no están vacíos y que validan
         if (!empty($nombreUsuario)) {
+            //si buscamos al usuario y devuleve un numero quiere decir que existe
+            if(buscarUsuario($nombreUsuario)!==false){
+
+            }
             if (!validar($nombreUsuario, VALIDA_USUARIO)) {
                 $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
                 $algunError = true;
             } else {
+                //Metemos el usuario y contraseña en el registro
+                $passCifrado  = md5($password, PASSWORD_DEFAULT);
+                $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
+                fwrite($ficheroContrasenas, "$nombreUsuario|$passCifrado" . PHP_EOL);
+                fclose($ficheroContrasenas);
+
                 $nombreUsuarioOK = $nombreUsuario;
             }
         } else {
@@ -103,9 +112,7 @@
 
         //Si no hay errores entra al login.
         if (!$algunError) {
-            echo"<script language='JavaScript'>alert('Registrado con exito!')</script>";
-            echo"<script language='JavaScript'>window.location = ('login.php');</script>";
-            exit();
+            header("Location: login.php");
         }
     }
     ?>
