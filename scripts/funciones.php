@@ -1,6 +1,6 @@
 <?php
 
-include_once 'configForm.php';
+include_once 'scripts/configForm.php';
 
 /**
  * Función validar valida un dato de formulario con una expresión regular
@@ -30,26 +30,32 @@ function validar($datoAValidar, $expresionRegular)
  */
 function validarFecha($fecha)
 {
-    $resultado =true; 
-    
+    $resultado = true;
+
     //Transformamos el string a DateTime
     $fechaActual = new DateTime(date("Y-m-d"));
     $fechaNacimiento = new DateTime($fecha);
     $anios = $fechaActual->diff($fechaNacimiento)->y;
 
     //Si contiene una fecha entra por aqui.    
-    if (strlen($fecha)>0) {
+    if (strlen($fecha) > 0) {
         if ($fechaNacimiento > $fechaActual) { //Fecha de nacimiento posterior a hoy
-        $resultado = false;
+            $resultado = false;
             return $resultado;
-        }elseif($anios<14){
-        $resultado = false;
-        return $resultado;
+        } elseif ($anios < 14) {
+            $resultado = false;
+            return $resultado;
         }
-    }else{ //Si no contiene fecha entra por aquí
+    } else { //Si no contiene fecha entra por aquí
         $resultado = false;
         return $resultado;
     }
 
     return $resultado;
+}
+
+
+function buscarUsuario($nombreABuscar){
+    $archivo = file_get_contents('acceso/usuariosPassword.txt');
+    return strpos($archivo, $nombreABuscar);
 }
