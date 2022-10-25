@@ -1,0 +1,27 @@
+El código podría estar mucho más comentado.
+**No habéis limpiado de código antiguo comentado.
+**login.php de true y false como cadenas de texto.
+**No validáis el archivo subido por el usuario ni lo almacenáis en ningún otro lado utilizable.
+**No utilizáis comprobación de contraseña en el registro.Repetir contraseña
+Boton mostrar contraseña. 
+No dais feedback al usuario de que se ha registrado con éxito.
+En la función de validar fecha podéis utilizar sólo una vez el return (al final) y asignar a false o true solamente en las diferentes bifurcaciones del código.
+
+
+ACTUAL
+
+almacenar informacion usuario en fichero en servidor. Fichero protegido
+Validar login contra el fichero.
+Cargar informacion usuario sesion
+colores  e idioma cookies
+Si ha hecho login mostrar boton logout, si no login
+index.php idiomas y modos luces
+revisar fichero de usuarios para confirmar que el nuevo registo no tiene un nombre en uso
+
+tema claro/oscuro : https://www.nigmacode.com/diseno-web/crear-modo-nocturno-en-una-web/
+
+
+PROBLEMAS
+El fichero no nos saca la linea necesaria. Dejo el var_dump para que lo veas.
+Por lo tanto tampoco valida bien
+

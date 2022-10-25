@@ -8,20 +8,23 @@ require "confIdioma.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <script>
-        function mostrarContrasena() {
-            var tipo = document.getElementById("password");
-            if (tipo.type === "password") {
-                tipo.type = "text";
-            } else {
-                tipo.type = "password";
-            }
-        }
-    </script> -->
     <title><?php echo $lang['titulo']?></title>
+    <?php include './Utilidades/botonDiaNoche.php'; ?>
+    <?php include './Utilidades/links.php'; ?>
 </head>
 <body>
 
+    <body id="page" class="wrapper">
+    <?php
+    //Cargamos las cookies
+    if (!isset($_COOKIE["primeraVisita"])) {
+        //La cookie caduca en 1 año. La vamos a utilizar después para guardar las preferencias de tema e idioma.
+        setcookie("primeraVisita", time(), time() + 60 * 60 * 24 * 365);
+    }
+    //Abrimos la sesion
+    session_start();
+
+    ?>
     <a href="index.php?lang=eng" ><img src="media/flags/england.png" alt="<?=$lang['eng'];?>" title="<?=$lang['eng'];?>" class="eng"/></a>
     <a href="index.php?lang=esp" ><img src="media/flags/espana.png" alt="<?=$lang['esp'];?>" title="<?=$lang['esp'];?>" class="esp" /></a>
 
@@ -30,5 +33,4 @@ require "confIdioma.php";
         <button onclick="window.open('registro.php')"><?php echo $lang['registro']?></button>    
 </form>
 </body>
-
 </html>
