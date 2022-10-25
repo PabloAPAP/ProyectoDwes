@@ -10,14 +10,14 @@
 </head>
 
 <body>
-<?php
+    <?php
     $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
     $passwordRegistado = "1234"; //contraseña temporal para probar que funciona
     $usuarioOk = false;
     $passwordOk = false;
-    $_usuario_err ="";
-    $_password_err ="";
-    $_usuPassOK="";
+    $_usuario_err = "";
+    $_password_err = "";
+    $_usuPassOK = "";
     $_registro = "";
 
     if (!empty($_POST)) {
@@ -37,27 +37,39 @@
             $_password_err = "<p>No ha introducido una contraseña</p>";
         } else if ($password == $passwordRegistado) {
             $passwordOk = true;
-        } else if ($password != $passwordRegistado){
+        } else if ($password != $passwordRegistado) {
             $_password_err =  "<p>Contraseña incorrecta</p>";
         }
 
         if ($usuarioOk == true && $passwordOk == true) {
-            $_usuPassOK ="<h1>Bienvenido $usuario</h1>";
+            $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
+            //propago sesion
+            session_start();
+            //relleno con los datos del usuario
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['pass']=$password;
+            //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR'];            
         }
-        
     }
-    ?>
+    if(isset($_SESSION['usuario']))
+    {
+        echo "<p>Usuario: ".$_SESSION['usuario']."</p>";
+        echo "<a href=logout.php>Cerrar Sesion</a>";
+    }
+    else {    
+        //Muestro el formulario de inicio
+        ?>
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
-    <h1>Inicio de sesión</h1>
+        <h1>Inicio de sesión</h1>
         <p>Nombre de usuario</p>
-        <input type="text" name="usuario" placeholder="Nombre de usuario"><span class="error"><?php echo $_usuario_err   ; ?></span>
+        <input type="text" name="usuario" placeholder="Nombre de usuario"><span class="error"><?php echo $_usuario_err; ?></span>
         <p>Contraseña</p>
         <input type="password" name="password" id="password" placeholder="Contraseña"><span class="error"><?php echo $_password_err; ?></span><br>
         <input type="submit" value="Acceder">
         <p><a href='registro.php'>¿No tienes cuenta? Regístrate.</a></p>
-        <?php echo $_usuPassOK; ?>        
+        <?php echo $_usuPassOK; ?>
         <?php echo $_registro; ?>
     </form>
 </body>
-
+<?php   }?>
 </html>

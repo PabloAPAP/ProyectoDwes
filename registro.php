@@ -31,8 +31,7 @@
         // Comprobamos que los campos no están vacíos y que validan
         if (!empty($nombreUsuario)) {
             //si buscamos al usuario y devuleve un numero quiere decir que existe
-            if(buscarUsuario($nombreUsuario)!==false){
-
+            if (buscarUsuario($nombreUsuario) !== false) {
             }
             if (!validar($nombreUsuario, VALIDA_USUARIO)) {
                 $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
@@ -125,20 +124,18 @@
         <span class="error"><?php echo $nombreError; ?></span>
         <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
         <p>Contraseña *</p>
-        <div class="btnAlinear">
         
-        <span class="error"><?php echo $passError; ?></span>
-        
+            <span class="error"><?php echo $passError; ?></span>
+            <div class="btnAlinear">
             <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
             <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
         </div>
-
         <br>
-
         <p>Repite la contraseña *</p>
+        
         <span class="error"><?php echo $pass2Error; ?></span>
         <div class="btnAlinear">
-            <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
+                    <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
             <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
         </div>
         <br>

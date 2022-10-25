@@ -18,8 +18,9 @@
         //La cookie caduca en 1 año. La vamos a utilizar después para guardar las preferencias de tema e idioma.
         setcookie("primeraVisita", time(), time() + 60 * 60 * 24 * 365);
     }
-    //Abrimos la sesion
-    session_start();
+    else{
+        
+    }
 
     ?>
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
