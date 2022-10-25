@@ -5,10 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <?php include './scripts/esqueleto.php'; echo $_links; ?>
     <title>Regístrate</title>
 </head>
 
@@ -142,8 +139,8 @@
         <p>Repite la contraseña *</p>
         <span class="error"><?php echo $pass2Error; ?></span>
         <div class="btnAlinear">
-            <input type="password" class="form-control mb-0" id="password2" value="<?php echo $password2OK; ?>">
-            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword2()"> <span class="fa fa-eye-slash icon"></span> </button>
+            <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
+            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
         </div>
         <br>
 
