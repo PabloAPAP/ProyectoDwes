@@ -139,7 +139,7 @@
         <span class="error"><?php echo $pass2Error; ?></span>
         <div class="btnAlinear">
             <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
-            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword2()"> <span class="fa fa-eye-slash icon"></span> </button>
+            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
         </div>
         <br>
 
