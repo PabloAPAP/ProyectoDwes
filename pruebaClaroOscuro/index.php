@@ -18,7 +18,7 @@
       <i class="fas fa-moon"></i>
    </div>
 </div>
-    <div id="page" class="wrapper">
+    <div id="page">
         <div class="container-fluid">
             <div class="row text-center">
               <div class="col-12">

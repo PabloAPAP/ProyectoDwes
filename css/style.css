@@ -1,159 +1,148 @@
-
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .error {
-    color: #FF0000;
+  color: #ff0000;
 }
 
-.btnAlinear{
-    line-height: 0px;
-  display:flex;
-  align-items:Center;
+.btnAlinear {
+  line-height: 0px;
+  display: flex;
+  align-items: Center;
 }
 
-.btnMostrar{
-width: 10%;
-border-radius: 4px;
-background:#24303c;
-
-
+.btnMostrar {
+  width: 10%;
+  border-radius: 4px;
+  background: #243c3c;
 }
 
-body{
-    background: url('../media/fondo-formulario.jpg'); 
-    background-repeat: no-repeat;
-    /*Centramos el fondo al centro*/
-    background-position: center center;
-    /*Y le decimos que siempre ocupe el ancho y el alto con esto*/
-    background-size: cover;
-    background-attachment: fixed;
-}
 .login-form {
-    width: 600px;
-    background: #24303c;
-    padding: 30px;
-    margin: auto;
-    margin-top: 4px;
-    font-family: Arial, Helvetica, sans-serif;
-    color:white;
-    box-shadow: 7px 13px 37px #000;
+  width: 600px;
+  background: #b3e1fc;
+  padding: 30px;
+  margin: auto;
+  margin-top: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  box-shadow: 7px 13px 37px #000;
 }
 .login-form h1 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.login-form input{
-    width: 100%;
-    background:#24303c;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid #1f53c5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+.login-form input {
+  width: 100%;
+  background: #4984c0;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #c5ac1f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
 }
-.login-form input{
-    width: 100%;
-    background:#24303c;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid #1f53c5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+.login-form input {
+  width: 100%;
+  background: lightblue;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #5988ec;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
 }
-.login-form p{
-    height: 40px;
-    text-align: left;
-    font-size: 18px;
+.login-form p {
+  height: 40px;
+  text-align: left;
+  font-size: 18px;
 }
-.login-form a{
-    color: white;
-    text-decoration: none;
+/*MENSAJE DE: ¿ya tienes cuenta? logueate*/
+.login-form a {
+  color: black;
+  text-decoration: none;
 }
-.login-form a:hover{
-    color: white;
-    text-decoration: underline;
+.login-form a:hover {
+  color: blue;
+  text-decoration: underline;
 }
-.login-form input[type=submit]{
-    width: 100%;
-    background: #1f53c5;
-    border: none;
-    padding: 12px;
-    color: white;
-    margin: 16px 0;
-    font-size: 16px;
+.login-form input[type="submit"] {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
 }
 
-form button{
-    width: 100%;
-    background: #1f53c5;
-    border: none;
-    padding: 12px;
-    color: white;
-    margin: 16px 0;
-    font-size: 16px;
+form button {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
 }
-input{
-    color:white;
+input {
+  color: white;
 }
 
 /*INICIO BOTON DE DIA/NOCHE*/
-.container-btn-mode{
-    position: absolute;
-    top:20px;
-    right: 30px;
-    cursor: pointer;
-    z-index: 2;
-    font-size:0;
-  }
-  .btn-mode{
-    display: inline-block;
-    width: 50px;
-    height: 30px;
-    border:2px solid black;
-    transition: background-color .5s;
-  }
-  .btn-mode i {
-    display: block;
-    font-size: 17px;
-    text-align: center;
-    line-height: 30px;
-  }
-  .btn-mode.sun{
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-right: 1px solid transparent;
-  }
-  .btn-mode.moon{
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-  .active{
-    background-color:black;
-    color:#ffcd5c !important;
-    
-  }
+.container-btn-mode {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 0;
+}
+.btn-mode {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  border: 2px solid black;
+  transition: background-color 0.5s;
+}
+.btn-mode i {
+  display: block;
+  font-size: 17px;
+  text-align: center;
+  line-height: 30px;
+}
+.btn-mode.sun {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-right: 1px solid transparent;
+}
+.btn-mode.moon {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.active {
+  background-color: black;
+  color: #ffcd5c !important;
+}
 
-  .dark-mode{
-    background-color: #0e0e0e;
-    transition:background-color .5s;
-  }
-  .dark-mode .card{
-    background-color: #1A1C1E;
-  }
-  .dark-mode h1, .dark-mode h2, .dark-mode .btn-contact{
-    color:white;
-  }
-  .dark-mode .btn-mode{
-    background-color:#1A1C1E;
-    border:1px solid white;
-    color:white;
-  }
+.dark-mode {
+  background-color: #0e0e0e;
+  transition: background-color 0.5s;
+}
+.dark-mode .card {
+  background-color: #1a1c1e;
+}
+.dark-mode h1,
+.dark-mode h2 {
+  color: white;
+}
+.dark-mode .btn-mode {
+  background-color: #1a1c1e;
+  border: 1px solid white;
+  color: white;
+}
 
-  /*FIN BOTON DIA/NOCHE*/
+/*FIN BOTON DIA/NOCHE*/
