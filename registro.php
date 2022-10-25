@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include './scripts/esqueleto.php';
-    echo $_links; ?>
+    <?php include './scripts/esqueleto.php'; echo $_links; ?>
+    <?php include './Utilidades/botonDiaNoche.php'; ?>
+    <?php include './Utilidades/links.php'; ?>
     <title>Regístrate</title>
 </head>
 
-<body>
+<body id="page">
     <?php
     //Validación del formulario
 
