@@ -7,14 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Inicio</title>
+    <?php include './Utilidades/botonDiaNoche.php'; ?>
+    <?php include './Utilidades/links.php'; ?>
 </head>
 
-<body>
+<body id="page" class="wrapper">
     <?php
     //Cargamos las cookies
-    if(!isset($_COOKIE["primeraVisita"])){
+    if (!isset($_COOKIE["primeraVisita"])) {
         //La cookie caduca en 1 año. La vamos a utilizar después para guardar las preferencias de tema e idioma.
-        setcookie("primeraVisita", time(), time()+60*60*24*365);
+        setcookie("primeraVisita", time(), time() + 60 * 60 * 24 * 365);
     }
     //Abrimos la sesion
     session_start();
@@ -25,5 +27,4 @@
         <button onclick="window.open('registro.php')">Registrarse</button>
     </form>
 </body>
-
 </html>
