@@ -55,7 +55,28 @@ function validarFecha($fecha)
 }
 
 
-function buscarUsuario($nombreABuscar){
+function buscarUsuario($nombreABuscar)
+{
     $archivo = file_get_contents('acceso/usuariosPassword.txt');
     return strpos($archivo, $nombreABuscar);
+}
+
+function recuperarUsuario($nombreABuscar)
+{
+    
+    $archivo = fopen("acceso/usuariosPassword.txt", "r");
+    $texto = fread($archivo, filesize("acceso/usuariosPassword.txt"));
+    fclose($archivo);
+    $linea = explode("\n", $texto);
+    foreach ($linea as $lin_ea) {
+        $ja = explode("|", $lin_ea);
+        $usuario = $ja[0];
+        $password = $ja[1];
+        echo "usuario: " . $usuario . " contrasena: " . $password . "<br>";
+    }
+    fclose($archivo);
+    //Devuelve el resultado
+    return $ja;
+
+    fclose($archivo);
 }
