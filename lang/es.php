@@ -7,4 +7,5 @@ $lang['eng'] ="Inglés";
 $lang['ini'] ="Inicio de Sesión";
 $lang['nomUsu'] ="Nombre de Usuario";
 $lang['password'] ="Contraseña";
+$lang['acceder'] = "Acceder";
 ?>

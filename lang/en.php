@@ -5,8 +5,9 @@ $lang = array(
     "registro" => "Sign In",
     "esp" => "Spanish",
     "eng" => "English",
-    "ini" => "Inicio de Sesión",
-    "nomUsu" => "Nombre de Usuario",
-    "password"=>"Contraseña"
+    "ini" => "Log In",
+    "nomUsu" => "Username",
+    "password"=>"Password",
+    "acceder" => "Login"
 )
 ?>
