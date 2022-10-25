@@ -55,7 +55,36 @@ function validarFecha($fecha)
 }
 
 
-function buscarUsuario($nombreABuscar){
+function buscarUsuario($nombreABuscar)
+{
     $archivo = file_get_contents('acceso/usuariosPassword.txt');
     return strpos($archivo, $nombreABuscar);
+}
+
+function recuperarUsuario($nombreABuscar)
+{
+
+    $archivo = fopen("acceso/usuariosPassword.txt", "r");
+
+    //comprobamos que el archivo exista
+    $db_txt = 'acceso/usuariosPassword.txt';
+
+    //cargamos el archivo a la variable como tipo array
+    $lineas = file($db_txt);
+    //lineas contendra un array: 
+    //array(0 => 'pedro:123456', 1 => 'juan:mipass',2 =>'pamela:estapassesmuylargaynolasabras');
+    //recorremos el array
+    foreach ($lineas as $linea) {
+        //dividimos la linea por el separador ':'
+        //usamos trim para quitar los espacios como el salto de linea y retorno de carro
+        //luego divimos la linea con explode dandole como limite 2 , para haci decir que si 
+        //encuentra mas ':' los ignore
+        //por ultimo list solo asigna los valores del array a variables comunes
+        list($user, $pass) = explode("|", trim($linea), 2);
+        //comparamos que el user y la pass no sean vacios o que contengan strings
+        if (is_string($user)  &&  is_string($pass)) {
+            $arrayDatos = [$user, $pass];
+            return $arrayDatos;
+        }
+    }
 }

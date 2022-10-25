@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include './scripts/esqueleto.php';
-    echo $_links; ?>
+    <?php include './scripts/esqueleto.php'; echo $_links; ?>
+    <?php include './Utilidades/botonDiaNoche.php'; ?>
+    <?php include './Utilidades/links.php'; ?>
     <title>Regístrate</title>
 </head>
 
-<body>
+<body id="page">
     <?php
     //Validación del formulario
 
@@ -31,19 +32,25 @@
         // Comprobamos que los campos no están vacíos y que validan
         if (!empty($nombreUsuario)) {
             //si buscamos al usuario y devuleve un numero quiere decir que existe
+<<<<<<< HEAD
             if (buscarUsuario($nombreUsuario) !== false) {
             }
             if (!validar($nombreUsuario, VALIDA_USUARIO)) {
                 $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
+=======
+            if (buscarUsuario($nombreUsuario) !== false) { //Ya existe alguien registrado con ese nombre
+                $nombreError = "Ya existe un usuario con ese nombre";
+>>>>>>> 534c47ceb6321deb479118b713b75e5c438f6fcb
                 $algunError = true;
-            } else {
-                //Metemos el usuario y contraseña en el registro
-                $passCifrado  = md5($password, PASSWORD_DEFAULT);
-                $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
-                fwrite($ficheroContrasenas, "$nombreUsuario|$passCifrado" . PHP_EOL);
-                fclose($ficheroContrasenas);
+            } else { //No existe ningun usuario registrado con ese nombre, por lo tanto validamos el usuario
+                if (!validar($nombreUsuario, VALIDA_USUARIO)) {
+                    $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
+                    $algunError = true;
+                } else {
 
-                $nombreUsuarioOK = $nombreUsuario;
+
+                    $nombreUsuarioOK = $nombreUsuario;
+                }
             }
         } else {
             $nombreError = "El campo 'Nombre de usuario' no puede estar vacío";
@@ -112,6 +119,11 @@
 
         //Si no hay errores entra al login.
         if (!$algunError) {
+            //Metemos el usuario y contraseña en el registro
+            //$passCifrado  = md5($password, PASSWORD_DEFAULT);
+            $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
+            fwrite($ficheroContrasenas, "$nombreUsuario|$password" . PHP_EOL);
+            fclose($ficheroContrasenas);
             header("Location: login.php");
         }
     }
@@ -125,6 +137,10 @@
         <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
         <p>Contraseña *</p>
         
+<<<<<<< HEAD
+=======
+
+>>>>>>> 534c47ceb6321deb479118b713b75e5c438f6fcb
             <span class="error"><?php echo $passError; ?></span>
             <div class="btnAlinear">
             <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
