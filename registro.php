@@ -32,20 +32,22 @@
         // Comprobamos que los campos no están vacíos y que validan
         if (!empty($nombreUsuario)) {
             //si buscamos al usuario y devuleve un numero quiere decir que existe
-            if(buscarUsuario($nombreUsuario)!==false){
-
-            }
-            if (!validar($nombreUsuario, VALIDA_USUARIO)) {
-                $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
+            if (buscarUsuario($nombreUsuario) !== false) { //Ya existe alguien registrado con ese nombre
+                $nombreError = "Ya existe un usuario con ese nombre";
                 $algunError = true;
-            } else {
-                //Metemos el usuario y contraseña en el registro
-                $passCifrado  = md5($password, PASSWORD_DEFAULT);
-                $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
-                fwrite($ficheroContrasenas, "$nombreUsuario|$passCifrado" . PHP_EOL);
-                fclose($ficheroContrasenas);
+            } else { //No existe ningun usuario registrado con ese nombre, por lo tanto validamos el usuario
+                if (!validar($nombreUsuario, VALIDA_USUARIO)) {
+                    $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
+                    $algunError = true;
+                } else {
+                    //Metemos el usuario y contraseña en el registro
+                    //$passCifrado  = md5($password, PASSWORD_DEFAULT);
+                    $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
+                    fwrite($ficheroContrasenas, "$nombreUsuario|$password" . PHP_EOL);
+                    fclose($ficheroContrasenas);
 
-                $nombreUsuarioOK = $nombreUsuario;
+                    $nombreUsuarioOK = $nombreUsuario;
+                }
             }
         } else {
             $nombreError = "El campo 'Nombre de usuario' no puede estar vacío";
@@ -127,10 +129,10 @@
         <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
         <p>Contraseña *</p>
         <div class="btnAlinear">
-        
-        <span class="error"><?php echo $passError; ?></span>
-        
-            <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
+
+            <span class="error"><?php echo $passError; ?></span>
+
+            <input type="password" class="form-control mb-0" id="password1" value="<?php echo $passwordOK; ?>">
             <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
         </div>
 

@@ -21,17 +21,18 @@
     $_registro = "";
 
     if (!empty($_POST)) {
-
         $usuario = htmlspecialchars($_POST["usuario"]);
         $password = htmlspecialchars($_POST["password"]);
 
         if (empty($usuario)) {
             $_usuario_err =  "<p>No ha introducido un nombre de usuario</p>";
-        } else if ($usuario == $usuarioRegistrado) {
+        } else{
+            $aa = recuperarUsuario($usuario);
+        } /*if ($usuario == $usuarioRegistrado) {
             $usuarioOk = true;
         } else if ($usuario != $usuarioRegistrado) {
             $_usuario_err = "<p>Error, usuario no registrado</p>";
-        }
+        }*/
 
         if (empty($password)) {
             $_password_err = "<p>No ha introducido una contraseña</p>";
