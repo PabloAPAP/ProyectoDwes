@@ -22,6 +22,6 @@ tema claro/oscuro : https://www.nigmacode.com/diseno-web/crear-modo-nocturno-en-
 
 
 PROBLEMAS
-
-
+El fichero no nos saca la linea necesaria. Dejo el var_dump para que lo veas.
+Por lo tanto tampoco valida bien
 

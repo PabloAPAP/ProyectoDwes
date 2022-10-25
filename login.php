@@ -10,14 +10,16 @@
 </head>
 
 <body>
-<?php
+    <?php
+    include 'scripts/funciones.php';
+
     $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
     $passwordRegistado = "1234"; //contraseña temporal para probar que funciona
     $usuarioOk = false;
     $passwordOk = false;
-    $_usuario_err ="";
-    $_password_err ="";
-    $_usuPassOK="";
+    $_usuario_err = "";
+    $_password_err = "";
+    $_usuPassOK = "";
     $_registro = "";
 
     if (!empty($_POST)) {
@@ -26,8 +28,17 @@
 
         if (empty($usuario)) {
             $_usuario_err =  "<p>No ha introducido un nombre de usuario</p>";
-        } else{
-            $aa = recuperarUsuario($usuario);
+        } else {
+            if (buscarUsuario($usuario) === false) {
+                $_usuario_err = "<p>El usuario no está registrado</p>";
+                $usuarioBBDD="";
+                $passBBDD="";
+            } else {
+                $aa = recuperarUsuario($usuario);
+                $usuarioBBDD = $aa[0];
+                $passBBDD = $aa[1];
+                var_dump($aa);
+            }
         } /*if ($usuario == $usuarioRegistrado) {
             $usuarioOk = true;
         } else if ($usuario != $usuarioRegistrado) {
@@ -36,27 +47,33 @@
 
         if (empty($password)) {
             $_password_err = "<p>No ha introducido una contraseña</p>";
-        } else if ($password == $passwordRegistado) {
+        } else {
+            if ($usuario === $usuarioBBDD && $password === $passBBDD) {
+                $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
+            }
+        }
+        /*else if ($password == $passwordRegistado) {
             $passwordOk = true;
         } else if ($password != $passwordRegistado){
             $_password_err =  "<p>Contraseña incorrecta</p>";
         }
+*/
 
-        if ($usuarioOk == true && $passwordOk == true) {
+        /* if ($usuarioOk == true && $passwordOk == true) {
             $_usuPassOK ="<h1>Bienvenido $usuario</h1>";
         }
-        
+        */
     }
     ?>
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
-    <h1>Inicio de sesión</h1>
+        <h1>Inicio de sesión</h1>
         <p>Nombre de usuario</p>
-        <input type="text" name="usuario" placeholder="Nombre de usuario"><span class="error"><?php echo $_usuario_err   ; ?></span>
+        <input type="text" name="usuario" placeholder="Nombre de usuario"><span class="error"><?php echo $_usuario_err; ?></span>
         <p>Contraseña</p>
         <input type="password" name="password" id="password" placeholder="Contraseña"><span class="error"><?php echo $_password_err; ?></span><br>
         <input type="submit" value="Acceder">
         <p><a href='registro.php'>¿No tienes cuenta? Regístrate.</a></p>
-        <?php echo $_usuPassOK; ?>        
+        <?php echo $_usuPassOK; ?>
         <?php echo $_registro; ?>
     </form>
 </body>

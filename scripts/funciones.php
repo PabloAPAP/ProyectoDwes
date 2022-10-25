@@ -63,20 +63,28 @@ function buscarUsuario($nombreABuscar)
 
 function recuperarUsuario($nombreABuscar)
 {
-    
-    $archivo = fopen("acceso/usuariosPassword.txt", "r");
-    $texto = fread($archivo, filesize("acceso/usuariosPassword.txt"));
-    fclose($archivo);
-    $linea = explode("\n", $texto);
-    foreach ($linea as $lin_ea) {
-        $ja = explode("|", $lin_ea);
-        $usuario = $ja[0];
-        $password = $ja[1];
-        echo "usuario: " . $usuario . " contrasena: " . $password . "<br>";
-    }
-    fclose($archivo);
-    //Devuelve el resultado
-    return $ja;
 
-    fclose($archivo);
+    $archivo = fopen("acceso/usuariosPassword.txt", "r");
+
+    //comprobamos que el archivo exista
+    $db_txt = 'acceso/usuariosPassword.txt';
+
+    //cargamos el archivo a la variable como tipo array
+    $lineas = file($db_txt);
+    //lineas contendra un array: 
+    //array(0 => 'pedro:123456', 1 => 'juan:mipass',2 =>'pamela:estapassesmuylargaynolasabras');
+    //recorremos el array
+    foreach ($lineas as $linea) {
+        //dividimos la linea por el separador ':'
+        //usamos trim para quitar los espacios como el salto de linea y retorno de carro
+        //luego divimos la linea con explode dandole como limite 2 , para haci decir que si 
+        //encuentra mas ':' los ignore
+        //por ultimo list solo asigna los valores del array a variables comunes
+        list($user, $pass) = explode("|", trim($linea), 2);
+        //comparamos que el user y la pass no sean vacios o que contengan strings
+        if (is_string($user)  &&  is_string($pass)) {
+            $arrayDatos = [$user, $pass];
+            return $arrayDatos;
+        }
+    }
 }

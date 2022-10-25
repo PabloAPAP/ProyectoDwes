@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include './scripts/esqueleto.php'; echo $_links; ?>
+    <?php include './scripts/esqueleto.php';
+    echo $_links; ?>
     <title>Regístrate</title>
 </head>
 
@@ -38,11 +39,7 @@
                     $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
                     $algunError = true;
                 } else {
-                    //Metemos el usuario y contraseña en el registro
-                    //$passCifrado  = md5($password, PASSWORD_DEFAULT);
-                    $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
-                    fwrite($ficheroContrasenas, "$nombreUsuario|$password" . PHP_EOL);
-                    fclose($ficheroContrasenas);
+
 
                     $nombreUsuarioOK = $nombreUsuario;
                 }
@@ -114,6 +111,11 @@
 
         //Si no hay errores entra al login.
         if (!$algunError) {
+            //Metemos el usuario y contraseña en el registro
+            //$passCifrado  = md5($password, PASSWORD_DEFAULT);
+            $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
+            fwrite($ficheroContrasenas, "$nombreUsuario|$password" . PHP_EOL);
+            fclose($ficheroContrasenas);
             header("Location: login.php");
         }
     }
@@ -126,11 +128,11 @@
         <span class="error"><?php echo $nombreError; ?></span>
         <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
         <p>Contraseña *</p>
-        <div class="btnAlinear">
+        
 
             <span class="error"><?php echo $passError; ?></span>
-
-            <input type="password" class="form-control mb-0" id="password1" value="<?php echo $passwordOK; ?>">
+            <div class="btnAlinear">
+            <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
             <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
         </div>
 
