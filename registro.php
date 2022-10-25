@@ -32,15 +32,12 @@
         // Comprobamos que los campos no están vacíos y que validan
         if (!empty($nombreUsuario)) {
             //si buscamos al usuario y devuleve un numero quiere decir que existe
-<<<<<<< HEAD
             if (buscarUsuario($nombreUsuario) !== false) {
             }
             if (!validar($nombreUsuario, VALIDA_USUARIO)) {
                 $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
-=======
             if (buscarUsuario($nombreUsuario) !== false) { //Ya existe alguien registrado con ese nombre
                 $nombreError = "Ya existe un usuario con ese nombre";
->>>>>>> 534c47ceb6321deb479118b713b75e5c438f6fcb
                 $algunError = true;
             } else { //No existe ningun usuario registrado con ese nombre, por lo tanto validamos el usuario
                 if (!validar($nombreUsuario, VALIDA_USUARIO)) {
@@ -127,6 +124,7 @@
             header("Location: login.php");
         }
     }
+}
     ?>
 
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">
@@ -137,10 +135,7 @@
         <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
         <p>Contraseña *</p>
         
-<<<<<<< HEAD
-=======
 
->>>>>>> 534c47ceb6321deb479118b713b75e5c438f6fcb
             <span class="error"><?php echo $passError; ?></span>
             <div class="btnAlinear">
             <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">

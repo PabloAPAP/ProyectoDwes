@@ -14,11 +14,8 @@
 
 <body>
     <?php
-<<<<<<< HEAD
-=======
     include 'scripts/funciones.php';
 
->>>>>>> 534c47ceb6321deb479118b713b75e5c438f6fcb
     $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
     $passwordRegistado = "1234"; //contraseña temporal para probar que funciona
     $usuarioOk = false;
@@ -65,7 +62,6 @@
         }
 */
 
-<<<<<<< HEAD
         if ($usuarioOk == true && $passwordOk == true) {
             $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
             //propago sesion
@@ -93,7 +89,6 @@
         <input type="submit" value="Acceder">
         <p><a href='registro.php'>¿No tienes cuenta? Regístrate.</a></p>
         <?php echo $_usuPassOK; ?>
-=======
         /* if ($usuarioOk == true && $passwordOk == true) {
             $_usuPassOK ="<h1>Bienvenido $usuario</h1>";
         }
@@ -111,7 +106,6 @@
         <input type="password" name="password" id="password" placeholder=<?php echo $lang['password']?>><span class="error"><?php echo $_password_err; ?></span><br>
         <input type="submit" value=<?php echo $lang['acceder']?>>
         <?php echo $_usuPassOK; ?>        
->>>>>>> 534c47ceb6321deb479118b713b75e5c438f6fcb
         <?php echo $_registro; ?>
     </form>
 </body>
