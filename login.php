@@ -56,7 +56,7 @@
     //Mostramos el nombre de usuario y la opción de cerrar sesión
     if (isset($_SESSION['usuario'])) {
         echo "<p>Usuario: " . $_SESSION['usuario'] . "</p>";
-        echo "<a href=cerrarSesion.php>Cerrar Sesion</a>";
+        echo "<a href=scripts/cerrarSesion.php>Cerrar Sesion</a>";
     } else {
         //Muestro el formulario de inicio
     ?>

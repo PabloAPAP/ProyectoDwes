@@ -13,8 +13,16 @@
     <?php
     //Cargamos las cookies
     if (!isset($_COOKIE["primeraVisita"])) {
-        //La cookie caduca en 1 año. La vamos a utilizar después para guardar las preferencias de tema e idioma.
+        //Las cookies caducan en 1 año.
         setcookie("primeraVisita", time(), time() + 60 * 60 * 24 * 365);
+    }
+    if (!isset($_COOKIE["tema"])){
+        setcookie("tema", ----, time() + 60 * 60 * 24 * 365);
+
+    }
+    if (!isset($_COOKIE["idioma"])){
+        setcookie("idioma", time(), time() + 60 * 60 * 24 * 365);
+
     }
     //Abrimos la sesion
     session_start();
