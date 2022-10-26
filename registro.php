@@ -49,7 +49,7 @@
                         $nombreUsuarioOK = $nombreUsuario;
                     }
                 }
-            } }  } else {
+            } }   else {
                 $nombreError = "El campo 'Nombre de usuario' no puede estar vacío";
             }
 
@@ -123,7 +123,7 @@
                 fclose($ficheroContrasenas);
                 header("Location: login.php");
             }
-        
+        }
     
         ?>
 
