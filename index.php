@@ -19,6 +19,13 @@
     //Abrimos la sesion
     session_start();
 
+    if(isset($_SESSION['usuario']))
+    {
+        echo "<p>Usuario: ".$_SESSION['usuario']."</p>";
+        echo "<a href=cerrarSesion.php>Cerrar Sesion</a>";
+        //header("Location: login.php");
+    }
+    else{
     ?>
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
         <button onclick="window.open('login.php')">Iniciar Sesión</button>

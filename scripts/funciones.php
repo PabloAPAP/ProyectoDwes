@@ -85,7 +85,7 @@ function recuperarUsuario($nombreABuscar)
         if (is_string($user)  &&  is_string($pass)) {
             if ($nombreABuscar === $user){
             $arrayDatos = [$user, $pass];
-            return $arrayDatos;}
+            return $arrayDatos;}                
         }
     }
 }
