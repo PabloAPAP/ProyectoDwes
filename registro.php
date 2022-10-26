@@ -14,7 +14,6 @@
     <body id="page">
         <?php
         //Validación del formulario
-
         include 'scripts/funciones.php';
         $nombreError =  $passError = $pass2Error = $emailError = $fechaError = $imagenError = $errorVacios = "";
         $nombreUsuarioOK = $passwordOK = $password2OK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
@@ -116,7 +115,7 @@
                 fwrite($ficheroContrasenas, "$nombreUsuario|$passCifrado" . PHP_EOL);
                 fclose($ficheroContrasenas);
         ?> <h1>Registado con exito</h1>
-                <button class="login-form"><a href="login.php">Login</a></button>
+                <a href="login.php"><button class="login-form">Login</button></a>
 
             <?php
             } else { ?>
