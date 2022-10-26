@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,38 +27,37 @@
         } else {
             if (buscarUsuario($usuario) === false) {
                 $_usuario_err = $lang['errorUsuReg'];
-                $usuarioBBDD="";
-                $passBBDD="";
+                $usuarioBBDD = "";
+                $passBBDD = "";
             } else {
                 $aa = recuperarUsuario($usuario);
                 $usuarioBBDD = $aa[0];
                 $passBBDD = $aa[1];
-                var_dump($aa);
             }
         }
 
         if (empty($password)) {
             $_password_err = $lang['errorNoPass'];
         } else {
-            echo md5($password, PASSWORD_DEFAULT);
-            if ($usuario === $usuarioBBDD && md5($password, PASSWORD_DEFAULT) === $passBBDD) {
-                //propago sesion
-            //session_start();
-            //relleno con los datos del usuario
-            $_SESSION['usuario'] = $usuario;
-            $_SESSION['pass']=$password;
-            //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
-            }else{
+            if ($usuario === $usuarioBBDD && $password === $passBBDD) {
+                //Iniciamos la sesion
+                session_start();
+                //relleno con los datos del usuario
+                $_SESSION["usuario"] = $usuario;
+                $_SESSION["pass"] = $password;
+                var_dump($_SESSION);
+                //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
+                //header("Location: batalla.php");
+            } else {
                 $_password_err = "Contraseña incorrecta";
             }
         }
     }
-    //Mostramos el nombre de usuario y la opción de cerrar sesión
-    if (isset($_SESSION['usuario'])) {
-        echo "<p>Usuario: " . $_SESSION['usuario'] . "</p>";
-        echo "<a href=scripts/cerrarSesion.php>Cerrar Sesion</a>";
+    //Si ya tenemos la sesion iniciada nos manda a la pagina de las batallas
+    if (isset($_SESSION["usuario"])) {
+        header("Location: batalla.php");
     } else {
-        //Muestro el formulario de inicio
+       //Muestro el formulario de inicio
     ?>
 
         <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">

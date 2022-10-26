@@ -8,37 +8,31 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Inicio</title>
 </head>
+
 <body id="page" class="wrapper">
     <?php
-    //Cargamos las cookies
+    //Cargamos las cookies. Caducan en 1 año
     if (!isset($_COOKIE["primeraVisita"])) {
-        //Las cookies caducan en 1 año.
         setcookie("primeraVisita", time(), time() + 60 * 60 * 24 * 365);
     }
-    if (!isset($_COOKIE["tema"])){
+    if (!isset($_COOKIE["tema"])) {
         setcookie("tema", time(), time() + 60 * 60 * 24 * 365);
-
     }
-    if (!isset($_COOKIE["idioma"])){
+    if (!isset($_COOKIE["idioma"])) {
         setcookie("idioma", time(), time() + 60 * 60 * 24 * 365);
-
     }
-    //Abrimos la sesion
-    session_start();
 
-    if(isset($_SESSION['usuario']))
-    {
-        echo "<p>Usuario: ".$_SESSION['usuario']."</p>";
-        echo "<a href=cerrarSesion.php>Cerrar Sesion</a>";
-        //header("Location: login.php");
-    }
-    else{
+    //Si ya tenemos la sesion iniciada nos manda a la pagina de las batallas
+    if (isset($_SESSION["usuario"])) {
+        header("Location: batalla.php");
+    } else {
     ?>
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
-        <button onclick="window.open('login.php')">Iniciar Sesión</button>
-        <button onclick="window.open('registro.php')">Registrarse</button>
-    </form>
+        <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
+            <button onclick="window.open('login.php')">Iniciar Sesión</button>
+            <button onclick="window.open('registro.php')">Registrarse</button>
+        </form>
     <?php }
     ?>
 </body>
+
 </html>
