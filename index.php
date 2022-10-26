@@ -16,7 +16,7 @@
         setcookie("primeraVisita", time(), time() + 60 * 60 * 24 * 365);
     }
     if (!isset($_COOKIE["tema"])){
-        setcookie("tema", ----, time() + 60 * 60 * 24 * 365);
+        setcookie("tema", time(), time() + 60 * 60 * 24 * 365);
 
     }
     if (!isset($_COOKIE["idioma"])){
