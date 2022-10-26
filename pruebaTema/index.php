@@ -12,7 +12,7 @@
 
 <body>
 	<a href="funcioncookie.php?usertheme=style"><img src="Anochecer32.ico"></a>
-	<a href="funcioncookie.php?usertheme=style2">ESTILO 2</a>
+	<a href="funcioncookie.php?usertheme=style2"><img src="Amanecer.png" width="32px" height="32px"></a>
 </body>
 
 </html>
