@@ -10,14 +10,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php include './scripts/esqueleto.php';
         echo $_links; ?>
-        <?php include './Utilidades/links.php'; ?>
+        
         <title>Regístrate</title>
     </head>
 
     <body id="page">
         <?php
         //Validación del formulario
-
         include 'scripts/funciones.php';
         $nombreError =  $passError = $pass2Error = $emailError = $fechaError = $imagenError = $errorVacios = "";
         $nombreUsuarioOK = $passwordOK = $password2OK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
@@ -192,6 +191,9 @@
         }
     </script>
 
+        <?php
+        }
+        ?>
     </body>
 
     </html>

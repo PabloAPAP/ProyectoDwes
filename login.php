@@ -39,6 +39,7 @@
         if (empty($password)) {
             $_password_err = $lang['errorNoPass'];
         } else {
+            echo md5($password, PASSWORD_DEFAULT);
             if ($usuario === $usuarioBBDD && md5($password, PASSWORD_DEFAULT) === $passBBDD) {
                 //propago sesion
             //session_start();
@@ -46,13 +47,15 @@
             $_SESSION['usuario'] = $usuario;
             $_SESSION['pass']=$password;
             //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
+            }else{
+                $_password_err = "Contraseña incorrecta";
             }
         }
     }
     //Mostramos el nombre de usuario y la opción de cerrar sesión
     if (isset($_SESSION['usuario'])) {
         echo "<p>Usuario: " . $_SESSION['usuario'] . "</p>";
-        echo "<a href=logout.php>Cerrar Sesion</a>";
+        echo "<a href=cerrarSesion.php>Cerrar Sesion</a>";
     } else {
         //Muestro el formulario de inicio
     ?>

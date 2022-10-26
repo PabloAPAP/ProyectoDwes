@@ -22,15 +22,6 @@ background:#24303c;
 
 }
 
-body{
-    background: url('../media/fondo-formulario.jpg'); 
-    background-repeat: no-repeat;
-    /*Centramos el fondo al centro*/
-    background-position: center center;
-    /*Y le decimos que siempre ocupe el ancho y el alto con esto*/
-    background-size: cover;
-    background-attachment: fixed;
-}
 .login-form {
     width: 600px;
     background: #24303c;
@@ -103,8 +94,7 @@ input{
     color:white;
 }
 
-/*INICIO BOTON DE DIA/NOCHE*/
-.container-btn-mode{
+.container-btn-mode{/*INICIO BOTON DE DIA/NOCHE*/
     position: absolute;
     top:20px;
     right: 30px;
@@ -153,6 +143,4 @@ input{
     background-color:#1A1C1E;
     border:1px solid white;
     color:white;
-  }
-
-  /*FIN BOTON DIA/NOCHE*/
+  }/*FIN BOTON DIA/NOCHE*/
