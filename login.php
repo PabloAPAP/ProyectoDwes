@@ -1,6 +1,3 @@
-<?php
-    require "confIdioma.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +12,7 @@
 <body>
     <?php
     include 'scripts/funciones.php';
-
+    require "confIdioma.php";
     $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
     $passwordRegistado = "1234"; //contraseña temporal para probar que funciona
     $usuarioOk = false;
@@ -40,7 +37,7 @@
                 $aa = recuperarUsuario($usuario);
                 $usuarioBBDD = $aa[0];
                 $passBBDD = $aa[1];
-                var_dump($aa);
+                //var_dump($aa);
             }
         } /*if ($usuario == $usuarioRegistrado) {
             $usuarioOk = true;
@@ -53,6 +50,15 @@
         } else {
             if ($usuario === $usuarioBBDD && $password === $passBBDD) {
                 $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
+                //propago sesion
+            session_start();
+            //relleno con los datos del usuario
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['pass']=$password;
+            //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
+            }
+            else {
+                $_password_err =  "<p>Contraseña incorrecta</p>";
             }
         }
         /*else if ($password == $passwordRegistado) {
@@ -62,15 +68,10 @@
         }
 */
 
-        if ($usuarioOk == true && $passwordOk == true) {
+      /*  if ($usuarioOk == true && $passwordOk == true) {
             $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
-            //propago sesion
-            session_start();
-            //relleno con los datos del usuario
-            $_SESSION['usuario'] = $usuario;
-            $_SESSION['pass']=$password;
-            //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR'];            
-        }
+                       
+        }*/
     }
     if(isset($_SESSION['usuario']))
     {
@@ -80,21 +81,6 @@
     else {    
         //Muestro el formulario de inicio
         ?>
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
-        <h1>Inicio de sesión</h1>
-        <p>Nombre de usuario</p>
-        <input type="text" name="usuario" placeholder="Nombre de usuario"><span class="error"><?php echo $_usuario_err; ?></span>
-        <p>Contraseña</p>
-        <input type="password" name="password" id="password" placeholder="Contraseña"><span class="error"><?php echo $_password_err; ?></span><br>
-        <input type="submit" value="Acceder">
-        <p><a href='registro.php'>¿No tienes cuenta? Regístrate.</a></p>
-        <?php echo $_usuPassOK; ?>
-        /* if ($usuarioOk == true && $passwordOk == true) {
-            $_usuPassOK ="<h1>Bienvenido $usuario</h1>";
-        }
-        */
-    }
-    ?>
     <a href="login.php?lang=eng" ><img src="media/flags/england.png" alt="<?=$lang['eng'];?>" title="<?=$lang['eng'];?>" class="eng"/></a>
     <a href="login.php?lang=esp" ><img src="media/flags/espana.png" alt="<?=$lang['esp'];?>" title="<?=$lang['esp'];?>" class="esp" /></a>
 
@@ -109,5 +95,8 @@
         <?php echo $_registro; ?>
     </form>
 </body>
+    
+
+
 <?php   }?>
 </html>
