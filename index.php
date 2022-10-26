@@ -31,5 +31,7 @@
         <button onclick="window.open('login.php')">Iniciar Sesión</button>
         <button onclick="window.open('registro.php')">Registrarse</button>
     </form>
+    <?php }
+    ?>
 </body>
 </html>
