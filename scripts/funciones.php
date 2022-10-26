@@ -83,8 +83,9 @@ function recuperarUsuario($nombreABuscar)
         list($user, $pass) = explode("|", trim($linea), 2);
         //comparamos que el user y la pass no sean vacios o que contengan strings
         if (is_string($user)  &&  is_string($pass)) {
+            if ($nombreABuscar === $user){
             $arrayDatos = [$user, $pass];
-            return $arrayDatos;
+            return $arrayDatos;}
         }
     }
 }
