@@ -42,13 +42,11 @@
         } else {
             if ($usuario === $usuarioBBDD && md5($password, PASSWORD_DEFAULT) === $passBBDD) {
                 //propago sesion
-                session_start();
-                //relleno con los datos del usuario
-                $_SESSION['usuario'] = $usuario;
-                $_SESSION['pass'] = $password;
-                //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
-            } else {
-                $_password_err = "Contraseña incorrecta";
+            //session_start();
+            //relleno con los datos del usuario
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['pass']=$password;
+            //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
             }
         }
     }
