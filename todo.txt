@@ -1,6 +1,4 @@
 El código podría estar mucho más comentado.
-A MEDIAS - No dais feedback al usuario de que se ha registrado con éxito.
-
 
 ACTUAL
 

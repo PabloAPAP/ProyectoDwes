@@ -69,6 +69,7 @@
             <span class="error"><?php echo $_password_err; ?></span>
             <input type="password" name="password" id="password" placeholder=<?php echo $lang['password'] ?>></span><br>
             <input type="submit" value=<?php echo $lang['acceder'] ?>>
+            <p style="text-decoration-line: underline ;"><a href='registro.php'>¿Aún no tienes cuenta? Regístrate</a></p>
         </form>
 </body>
 

@@ -116,9 +116,11 @@ require "confIdioma.php";
             $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
             fwrite($ficheroContrasenas, "$nombreUsuario|$passCifrado" . PHP_EOL);
             fclose($ficheroContrasenas);
-    ?> <h1></h1>
-            <a href="login.php"><button class="login-form">Login</button></a>
-
+    ?>
+            <form class="login-form">
+                <h1>Bienvenid@ <?php echo $nombreUsuario?></h1>
+                <a href="login.php"><input type="button" value="Inicia sesión" name="submit" /></a>
+            </form>
         <?php
         } else { ?>
             <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">
