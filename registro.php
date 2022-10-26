@@ -1,5 +1,8 @@
+<?php
+    require "confIdioma.php";
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -33,11 +36,11 @@
         if (!empty($nombreUsuario)) {
             //si buscamos al usuario y devuleve un numero quiere decir que existe
             if (buscarUsuario($nombreUsuario) !== false) { //Ya existe alguien registrado con ese nombre
-                $nombreError = "Ya existe un usuario con ese nombre";
+                $nombreError = $lang['errorNomExiste'];
                 $algunError = true;
             } else { //No existe ningun usuario registrado con ese nombre, por lo tanto validamos el usuario
                 if (!validar($nombreUsuario, VALIDA_USUARIO)) {
-                    $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
+                    $nombreError = $lang['errorNom'];
                     $algunError = true;
                 } else {
 
@@ -46,44 +49,44 @@
                 }
             }
         } else {
-            $nombreError = "El campo 'Nombre de usuario' no puede estar vacío";
+            $nombreError = $lang['errorNomVacio'];
         }
 
         if (!empty($password)) {
             if (!validar($password, VALIDA_PASSWORD)) {
-                $passError = "La contraseña debe contener mayúsculas, minúsculas y números. Al menos 8 caracteres";
+                $passError = $lang['errorPass'];
                 $algunError = true;
             } else {
                 $passwordOK = $password;
             }
         } else {
-            $passError = "El campo 'Contraseña' no puede estar vacío";
+            $passError = $lang['errorPassVacio'];
         }
 
         if (!empty($password2)) {
             if ($password == $password2) {
                 $password2OK  = $password2;
             } else {
-                $pass2Error = "Las contraseñas no coinciden";
+                $pass2Error = $lang['errorPassDist'];
                 $algunError = true;
             }
         } else {
-            $pass2Error  = "El campo 'Repite la constraseña' no puede estar vacío";
+            $pass2Error  = $lang['errorRepPass'];
         }
 
         if (!empty($email)) {
             if (!validar($email, VALIDA_EMAIL)) {
-                $emailError = "El campo 'Correo electronico' es incorrecto";
+                $emailError = $lang['errorEmail'];
                 $algunError = true;
             } else {
                 $emailOK = $email;
             }
         } else {
-            $emailError = "El campo 'Correo electronico' no puede estar vacío";
+            $emailError = $lang['errorEmailVacio'];
         }
 
         if (!validarFecha($fechaNac)) {
-            $fechaError = "La edad mínima para registrarse son 14 años";
+            $fechaError = $lang['errorEdadMin'];
             $algunError = true;
         } else {
             $fechaNacOK = $fechaNac;
@@ -97,17 +100,17 @@
                 $imagenAvatarOK = $imagenAvatar;
             } else {
                 $algunError = true;
-                $imagenError = "El fichero debe ser jpeg, jpg o png";
+                $imagenError = $lang['errorImg'];
             }
         } else {
             $algunError = true;
-            $imagenError = "Tienes que subir una imagen de perfil";
+            $imagenError = $lang['errorImgVacio'];
         }
 
 
         if (empty($nombreUsuario) && empty($password) && empty($email) && empty($fechaNac) && empty($imagenAvatar)) {
             $algunError = true;
-            $errorVacios = "Ningún campo puede estar vacío";
+            $errorVacios = $lang['errorCampoVacio'];
         }
 
         //Si no hay errores entra al login.
@@ -121,14 +124,16 @@
         }
     }
     ?>
+    <a href="registro.php?lang=eng" ><img src="media/flags/england.png" alt="<?=$lang['eng'];?>" title="<?=$lang['eng'];?>" class="eng"/></a>
+    <a href="registro.php?lang=esp" ><img src="media/flags/espana.png" alt="<?=$lang['esp'];?>" title="<?=$lang['esp'];?>" class="esp" /></a>
 
     <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">
-        <h1>Regístrate</h1>
+        <h1><?php echo $lang['registro']?></h1>
 
-        <p>Nombre de Usuario *</p>
+        <p><?php echo $lang['nomUsu']?> *</p>
         <span class="error"><?php echo $nombreError; ?></span>
         <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
-        <p>Contraseña *</p>
+        <p><?php echo $lang['password']?> *</p>
         
 
             <span class="error"><?php echo $passError; ?></span>
@@ -139,7 +144,7 @@
 
         <br>
 
-        <p>Repite la contraseña *</p>
+        <p><?php echo $lang['repPassword']?> *</p>
         <span class="error"><?php echo $pass2Error; ?></span>
         <div class="btnAlinear">
             <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
@@ -147,30 +152,30 @@
         </div>
         <br>
 
-        <p>Correo electrónico *</p>
+        <p><?php echo $lang['email']?> *</p>
         <span class="error"><?php echo $emailError; ?></span>
         <input type="text" name="email" value="<?php echo $emailOK; ?>">
         <br><br>
 
-        <p> Fecha de nacimiento *</p>
+        <p> <?php echo $lang['fechNac']?> *</p>
         <span class="error"><?php echo $fechaError; ?></span>
         <input type="date" name="fechaNac" value="<?php echo $fechaNacOK; ?>">
         <br><br>
 
-        <p>Imagen de perfil *</p>
+        <p><?php echo $lang['imgPerfil']?> *</p>
         <span class="error"><?php echo $imagenError; ?></span>
         <input type="file" id="avatar" name="imagenAvatar" accept="image/png, image/gif, image/jpeg" value="<?php echo $imagenAvatarOK; ?>" />
 
         <br><br>
-        <h5>Los campos marcados con * son obligatorios</h5>
-        <input type="submit" value="Registrarse" name="submit" />
+        <h5><?php echo $lang['required']?></h5>
+        <input type="submit" value="<?php echo $lang['registro']?>" name="submit" />
         <span class="error"><?php echo $errorVacios; ?></span>
-        <p><a href='login.php'>¿Ya tienes cuenta? Logueate</a></p>
+        <p><a href='login.php'><?php echo $lang['loguearse']?></a></p>
 
         <br><br>
 
     </form>
-
+    <!-- Script para mostrar contraseña -->
     <script type="text/javascript">
         function mostrarPassword() {
             var cambio = document.getElementById("password1");

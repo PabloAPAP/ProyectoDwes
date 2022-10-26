@@ -30,10 +30,10 @@
         $password = htmlspecialchars($_POST["password"]);
 
         if (empty($usuario)) {
-            $_usuario_err =  "<p>No ha introducido un nombre de usuario</p>";
+            $_usuario_err =  $lang['errorNoUsu'];
         } else {
             if (buscarUsuario($usuario) === false) {
-                $_usuario_err = "<p>El usuario no está registrado</p>";
+                $_usuario_err = $lang['errorUsuReg'];
                 $usuarioBBDD="";
                 $passBBDD="";
             } else {
@@ -49,10 +49,10 @@
         }*/
 
         if (empty($password)) {
-            $_password_err = "<p>No ha introducido una contraseña</p>";
+            $_password_err = $lang['errorNoPass'];
         } else {
             if ($usuario === $usuarioBBDD && $password === $passBBDD) {
-                $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
+                $_usuPassOK = "<h1>"+$lang['bienvenido']+" $usuario</h1>";
             }
         }
         /*else if ($password == $passwordRegistado) {

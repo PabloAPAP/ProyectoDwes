@@ -12,9 +12,7 @@ require "confIdioma.php";
     <?php include './Utilidades/botonDiaNoche.php'; ?>
     <?php include './Utilidades/links.php'; ?>
 </head>
-<body>
-
-    <body id="page" class="wrapper">
+<body id="page" class="wrapper">
     <?php
     //Cargamos las cookies
     if (!isset($_COOKIE["primeraVisita"])) {
