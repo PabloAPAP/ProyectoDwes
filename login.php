@@ -51,7 +51,7 @@
             if ($usuario === $usuarioBBDD && $password === $passBBDD) {
                 $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
                 //propago sesion
-            session_start();
+            //session_start();
             //relleno con los datos del usuario
             $_SESSION['usuario'] = $usuario;
             $_SESSION['pass']=$password;
@@ -76,7 +76,8 @@
     if(isset($_SESSION['usuario']))
     {
         echo "<p>Usuario: ".$_SESSION['usuario']."</p>";
-        echo "<a href=logout.php>Cerrar Sesion</a>";
+        echo "<a href=cerrarSesion.php>Cerrar Sesion</a>";
+        //header("Location: index.php");
     }
     else {    
         //Muestro el formulario de inicio
