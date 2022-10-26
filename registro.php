@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php include './scripts/esqueleto.php'; echo $_links; ?>
-        <?php include './Utilidades/botonDiaNoche.php'; ?>
+        <?php include './scripts/esqueleto.php';
+        echo $_links; ?>
         <?php include './Utilidades/links.php'; ?>
         <title>Regístrate</title>
     </head>
@@ -36,20 +36,21 @@
                 }
                 if (!validar($nombreUsuario, VALIDA_USUARIO)) {
                     $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
-                if (buscarUsuario($nombreUsuario) !== false) { //Ya existe alguien registrado con ese nombre
-                    $nombreError = "Ya existe un usuario con ese nombre";
-                    $algunError = true;
-                } else { //No existe ningun usuario registrado con ese nombre, por lo tanto validamos el usuario
-                    if (!validar($nombreUsuario, VALIDA_USUARIO)) {
-                        $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
+                    if (buscarUsuario($nombreUsuario) !== false) { //Ya existe alguien registrado con ese nombre
+                        $nombreError = "Ya existe un usuario con ese nombre";
                         $algunError = true;
-                    } else {
+                    } else { //No existe ningun usuario registrado con ese nombre, por lo tanto validamos el usuario
+                        if (!validar($nombreUsuario, VALIDA_USUARIO)) {
+                            $nombreError = "El campo 'Nombre de Usuario' es incorrecto";
+                            $algunError = true;
+                        } else {
 
 
-                        $nombreUsuarioOK = $nombreUsuario;
+                            $nombreUsuarioOK = $nombreUsuario;
+                        }
                     }
                 }
-            } }   else {
+            } else {
                 $nombreError = "El campo 'Nombre de usuario' no puede estar vacío";
             }
 
@@ -114,17 +115,16 @@
                 $errorVacios = "Ningún campo puede estar vacío";
             }
 
-            //Si no hay errores entra al login.
+            //Si no hay errores entra al login y mete el usuario y la contraseña en el registro.
             if (!$algunError) {
-                //Metemos el usuario y contraseña en el registro
-                //$passCifrado  = md5($password, PASSWORD_DEFAULT);
+                $passCifrado  = md5($password, PASSWORD_DEFAULT);
                 $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
-                fwrite($ficheroContrasenas, "$nombreUsuario|$password" . PHP_EOL);
+                fwrite($ficheroContrasenas, "$nombreUsuario|$passCifrado" . PHP_EOL);
                 fclose($ficheroContrasenas);
                 header("Location: login.php");
             }
         }
-    
+
         ?>
 
         <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">
@@ -133,46 +133,37 @@
             <p>Nombre de Usuario *</p>
             <span class="error"><?php echo $nombreError; ?></span>
             <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
-            <p>Contraseña *</p>
-            
 
-                <span class="error"><?php echo $passError; ?></span>
-                <div class="btnAlinear">
+            <p>Contraseña *</p>
+            <span class="error"><?php echo $passError; ?></span>
+            <div class="btnAlinear">
                 <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
                 <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
             </div>
-            <br>
+
             <p>Repite la contraseña *</p>
-            
             <span class="error"><?php echo $pass2Error; ?></span>
             <div class="btnAlinear">
-                        <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
+                <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
                 <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
             </div>
-            <br>
 
             <p>Correo electrónico *</p>
             <span class="error"><?php echo $emailError; ?></span>
             <input type="text" name="email" value="<?php echo $emailOK; ?>">
-            <br><br>
 
             <p> Fecha de nacimiento *</p>
             <span class="error"><?php echo $fechaError; ?></span>
             <input type="date" name="fechaNac" value="<?php echo $fechaNacOK; ?>">
-            <br><br>
 
             <p>Imagen de perfil *</p>
             <span class="error"><?php echo $imagenError; ?></span>
             <input type="file" id="avatar" name="imagenAvatar" accept="image/png, image/gif, image/jpeg" value="<?php echo $imagenAvatarOK; ?>" />
 
-            <br><br>
-            <h5>Los campos marcados con * son obligatorios</h5>
+            <h6>Los campos marcados con * son obligatorios</h6>
             <input type="submit" value="Registrarse" name="submit" />
             <span class="error"><?php echo $errorVacios; ?></span>
-            <p><a href='login.php'>¿Ya tienes cuenta? Logueate</a></p>
-
-            <br><br>
-
+            <p style="text-decoration-line: underline ;"><a href='login.php'>¿Ya tienes cuenta? Logueate</a></p>
         </form>
 
         <script type="text/javascript">

@@ -13,90 +13,65 @@
     <?php
     include 'scripts/funciones.php';
     require "confIdioma.php";
-    $usuarioRegistrado = "pepe"; //usuario temporal para probar que funciona
-    $passwordRegistado = "1234"; //contraseña temporal para probar que funciona
-    $usuarioOk = false;
-    $passwordOk = false;
+
     $_usuario_err = "";
     $_password_err = "";
-    $_usuPassOK = "";
-    $_registro = "";
+
 
     if (!empty($_POST)) {
         $usuario = htmlspecialchars($_POST["usuario"]);
         $password = htmlspecialchars($_POST["password"]);
 
         if (empty($usuario)) {
-            $_usuario_err =  "<p>No ha introducido un nombre de usuario</p>";
+            $_usuario_err =  "No ha introducido un nombre de usuario";
         } else {
             if (buscarUsuario($usuario) === false) {
-                $_usuario_err = "<p>El usuario no está registrado</p>";
-                $usuarioBBDD="";
-                $passBBDD="";
+                $_usuario_err = "El usuario no está registrado";
+                $usuarioBBDD = "";
+                $passBBDD = "";
             } else {
                 $aa = recuperarUsuario($usuario);
                 $usuarioBBDD = $aa[0];
                 $passBBDD = $aa[1];
-                //var_dump($aa);
+                var_dump($aa);
             }
-        } /*if ($usuario == $usuarioRegistrado) {
-            $usuarioOk = true;
-        } else if ($usuario != $usuarioRegistrado) {
-            $_usuario_err = "<p>Error, usuario no registrado</p>";
-        }*/
+        }
 
         if (empty($password)) {
-            $_password_err = "<p>No ha introducido una contraseña</p>";
+            $_password_err = "No ha introducido una contraseña";
         } else {
-            if ($usuario === $usuarioBBDD && $password === $passBBDD) {
-                $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
+            if ($usuario === $usuarioBBDD && md5($password, PASSWORD_DEFAULT) === $passBBDD) {
                 //propago sesion
-            session_start();
-            //relleno con los datos del usuario
-            $_SESSION['usuario'] = $usuario;
-            $_SESSION['pass']=$password;
-            //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
-            }
-            else {
-                $_password_err =  "<p>Contraseña incorrecta</p>";
+                session_start();
+                //relleno con los datos del usuario
+                $_SESSION['usuario'] = $usuario;
+                $_SESSION['pass'] = $password;
+                //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
+            } else {
+                $_password_err = "Contraseña incorrecta";
             }
         }
-        /*else if ($password == $passwordRegistado) {
-            $passwordOk = true;
-        } else if ($password != $passwordRegistado) {
-            $_password_err =  "<p>Contraseña incorrecta</p>";
-        }
-*/
-
-      /*  if ($usuarioOk == true && $passwordOk == true) {
-            $_usuPassOK = "<h1>Bienvenido $usuario</h1>";
-                       
-        }*/
     }
-    if(isset($_SESSION['usuario']))
-    {
-        echo "<p>Usuario: ".$_SESSION['usuario']."</p>";
+    //Mostramos el nombre de usuario y la opción de cerrar sesión
+    if (isset($_SESSION['usuario'])) {
+        echo "<p>Usuario: " . $_SESSION['usuario'] . "</p>";
         echo "<a href=logout.php>Cerrar Sesion</a>";
-    }
-    else {    
+    } else {
         //Muestro el formulario de inicio
-        ?>
-    <a href="login.php?lang=eng" ><img src="media/flags/england.png" alt="<?=$lang['eng'];?>" title="<?=$lang['eng'];?>" class="eng"/></a>
-    <a href="login.php?lang=esp" ><img src="media/flags/espana.png" alt="<?=$lang['esp'];?>" title="<?=$lang['esp'];?>" class="esp" /></a>
+    ?>
 
-    <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
-    <h1><?php echo $lang['ini']?></h1>
-        <p><?php echo $lang['nomUsu']?></p>
-        <input type="text" name="usuario" placeholder=<?php echo $lang['nomUsu']?>><span class="error"><?php echo $_usuario_err   ; ?></span>
-        <p><?php echo $lang['password']?></p>
-        <input type="password" name="password" id="password" placeholder=<?php echo $lang['password']?>><span class="error"><?php echo $_password_err; ?></span><br>
-        <input type="submit" value=<?php echo $lang['acceder']?>>
-        <?php echo $_usuPassOK; ?>        
-        <?php echo $_registro; ?>
-    </form>
+        <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
+            <h1><?php echo $lang['ini'] ?></h1>
+            <p><?php echo $lang['nomUsu'] ?></p>
+            <span class="error"><?php echo $_usuario_err; ?></span>
+            <input type="text" name="usuario" placeholder=<?php echo $lang['nomUsu'] ?>></span>
+            <p><?php echo $lang['password'] ?></p>
+            <span class="error"><?php echo $_password_err; ?></span>
+            <input type="password" name="password" id="password" placeholder=<?php echo $lang['password'] ?>></span><br>
+            <input type="submit" value=<?php echo $lang['acceder'] ?>>
+        </form>
 </body>
-    
 
+<?php   } ?>
 
-<?php   }?>
 </html>
