@@ -1,5 +1,5 @@
 El código podría estar mucho más comentado.
-No dais feedback al usuario de que se ha registrado con éxito.
+A MEDIAS - No dais feedback al usuario de que se ha registrado con éxito.
 
 
 ACTUAL
@@ -8,12 +8,11 @@ ACTUAL
 **Validar login contra el fichero.
 Cargar informacion usuario sesion
 colores  e idioma cookies
-Si ha hecho login mostrar boton logout, si no login
-index.php idiomas y modos luces
+Si ha hecho login mostrar boton logout
+**index.php idiomas y modos luces
 revisar fichero de usuarios para confirmar que el nuevo registo no tiene un nombre en uso
 
 
 PROBLEMAS
-El fichero no nos saca la linea necesaria. Dejo el var_dump para que lo veas.
-Por lo tanto tampoco valida bien
+
 
