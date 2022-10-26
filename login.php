@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,12 +22,12 @@
         $password = htmlspecialchars($_POST["password"]);
 
         if (empty($usuario)) {
-            $_usuario_err =  "No ha introducido un nombre de usuario";
+            $_usuario_err =  $lang['errorNoUsu'];
         } else {
             if (buscarUsuario($usuario) === false) {
-                $_usuario_err = "El usuario no está registrado";
-                $usuarioBBDD = "";
-                $passBBDD = "";
+                $_usuario_err = $lang['errorUsuReg'];
+                $usuarioBBDD="";
+                $passBBDD="";
             } else {
                 $aa = recuperarUsuario($usuario);
                 $usuarioBBDD = $aa[0];
@@ -38,7 +37,7 @@
         }
 
         if (empty($password)) {
-            $_password_err = "No ha introducido una contraseña";
+            $_password_err = $lang['errorNoPass'];
         } else {
             echo md5($password, PASSWORD_DEFAULT);
             if ($usuario === $usuarioBBDD && md5($password, PASSWORD_DEFAULT) === $passBBDD) {

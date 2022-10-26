@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Inicio</title>
 </head>
-
-<body>
+<body id="page" class="wrapper">
     <?php
     //Cargamos las cookies
     if (!isset($_COOKIE["primeraVisita"])) {
