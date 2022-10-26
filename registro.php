@@ -1,36 +1,36 @@
 <?php
     require "confIdioma.php";
 ?>
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include './scripts/esqueleto.php'; echo $_links; ?>
-    <?php include './Utilidades/botonDiaNoche.php'; ?>
-    <?php include './Utilidades/links.php'; ?>
-    <title>Regístrate</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?php include './scripts/esqueleto.php';
+        echo $_links; ?>
+        <?php include './Utilidades/links.php'; ?>
+        <title>Regístrate</title>
+    </head>
 
-<body id="page">
-    <?php
-    //Validación del formulario
+    <body id="page">
+        <?php
+        //Validación del formulario
 
-    include 'scripts/funciones.php';
-    $nombreError =  $passError = $pass2Error = $emailError = $fechaError = $imagenError = $errorVacios = "";
-    $nombreUsuarioOK = $passwordOK = $password2OK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
-    if (!empty($_POST)) {
-        $algunError = false;
+        include 'scripts/funciones.php';
+        $nombreError =  $passError = $pass2Error = $emailError = $fechaError = $imagenError = $errorVacios = "";
+        $nombreUsuarioOK = $passwordOK = $password2OK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
+        if (!empty($_POST)) {
+            $algunError = false;
 
-        // Variables
-        $nombreUsuario = htmlspecialchars($_POST["nombreUsuario"]);
-        $password = htmlspecialchars($_POST["password1"]);
-        $password2 = htmlspecialchars($_POST["password2"]);
-        $email = htmlspecialchars($_POST["email"]);
-        $fechaNac = htmlspecialchars($_POST["fechaNac"]);
-        $imagenAvatar = $_FILES["imagenAvatar"];
+            // Variables
+            $nombreUsuario = htmlspecialchars($_POST["nombreUsuario"]);
+            $password = htmlspecialchars($_POST["password1"]);
+            $password2 = htmlspecialchars($_POST["password2"]);
+            $email = htmlspecialchars($_POST["email"]);
+            $fechaNac = htmlspecialchars($_POST["fechaNac"]);
+            $imagenAvatar = $_FILES["imagenAvatar"];
 
         // Comprobamos que los campos no están vacíos y que validan
         if (!empty($nombreUsuario)) {
@@ -138,9 +138,9 @@
 
             <span class="error"><?php echo $passError; ?></span>
             <div class="btnAlinear">
-            <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
-            <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-        </div>
+                <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
+                <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+            </div>
 
         <br>
 
@@ -192,6 +192,6 @@
         }
     </script>
 
-</body>
+    </body>
 
-</html>
+    </html>
