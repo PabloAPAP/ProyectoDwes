@@ -12,8 +12,6 @@ Si ha hecho login mostrar boton logout
 **index.php idiomas y modos luces
 revisar fichero de usuarios para confirmar que el nuevo registo no tiene un nombre en uso
 
-tema claro/oscuro : https://www.nigmacode.com/diseno-web/crear-modo-nocturno-en-una-web/
-
 
 PROBLEMAS
 
