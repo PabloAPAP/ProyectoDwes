@@ -33,6 +33,7 @@ include 'scripts/funciones.php';
         $imagenAvatar = $_FILES["imagenAvatar"];
 
         // Comprobamos que los campos no están vacíos y que validan
+       
         if (!empty($nombreUsuario)) {
             //Si buscamos al usuario y devuleve un numero quiere decir que existe
             if (buscarUsuario($nombreUsuario) !== false) {
@@ -47,7 +48,7 @@ include 'scripts/funciones.php';
                 }
             }
         } else {
-            $nombreError = $lang['Username field cannot be empty'];
+            $nombreError = $lang['errorNomVacio'];
         }
 
         if (!empty($password)) {
@@ -105,7 +106,7 @@ include 'scripts/funciones.php';
             $imagenError = $lang['errorImgVacio'];
         }
 
-
+        //Si todo está vacio:
         if (empty($nombreUsuario) && empty($password) && empty($email) && empty($fechaNac) && empty($imagenAvatar)) {
             $algunError = true;
             $errorVacios = $lang['errorCampoVacio'];

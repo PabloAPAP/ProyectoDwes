@@ -20,9 +20,4 @@ define("VALIDA_PASSWORD", "/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/A");
 */
 define("VALIDA_EMAIL", "/[\w\.]+@([\w-]+\.)+[\w-]{2,4}/A");
 
-/*VALIDA_FECHA_NAC: 
-*/
-define("VALIDA_FECHA_NAC", "/([0-9]{4})\-([0-9]{2})\-([0-9]{2})/A");
-
-
 ?>

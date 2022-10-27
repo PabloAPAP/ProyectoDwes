@@ -19,7 +19,7 @@
     $_usuario_err = "";
     $_password_err = "";
 
-
+    //Si el formulario no está vacío empezamos la validación de login del usuario.
     if (!empty($_POST)) {
         $usuario = htmlspecialchars($_POST["usuario"]);
         $password = htmlspecialchars($_POST["password"]);
