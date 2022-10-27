@@ -3,19 +3,17 @@ require "confIdioma.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    require "confIdioma.php";
-    ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <?php
-	if (!empty($_COOKIE['_cookietema'])) $style = $_COOKIE['_cookietema'];
-	if (empty($_COOKIE['_cookietema'])) $style = "style";
-	?>
-	<link rel="stylesheet" href="<?php echo $style ?>.css" type="text/css" media="all">
+    if (!empty($_COOKIE['_cookietema'])) $style = $_COOKIE['_cookietema'];
+    if (empty($_COOKIE['_cookietema'])) $style = "style";
+    ?>
+    <link rel="stylesheet" href="<?php echo $style ?>.css" type="text/css" media="all">
 
     <title><?php echo $lang['titulo'] ?></title>
 </head>
@@ -26,8 +24,8 @@ require "confIdioma.php";
     <a href="index.php?lang=esp"><img src="media/flags/espana.png" alt="<?= $lang['esp']; ?>" title="<?= $lang['esp']; ?>" class="esp" /></a>
     <!--Botones temas-->
     <div class="container-btn-mode">
-    <a href="./prueba/funcioncookie.php?usertheme=./css/style"><img src="./media/sol.png" width="32px" height="32px"></a>
-	<a href="./prueba/funcioncookie.php?usertheme=./css/styleDarkMode"><img src="./media/luna.png" width="32px" height="32px"></a>
+        <a href="./prueba/funcioncookie.php?usertheme=./css/style"><img src="./media/sol.png" width="32px" height="32px"></a>
+        <a href="./prueba/funcioncookie.php?usertheme=./css/styleDarkMode"><img src="./media/luna.png" width="32px" height="32px"></a>
     </div>
     <?php
     //Cargamos las cookies. Caducan en 1 año
@@ -37,7 +35,7 @@ require "confIdioma.php";
 
     //Si ya tenemos la sesion iniciada nos manda a la pagina de las batallas
     if (isset($_SESSION["usuario"])) {
-        header("Location: batalla.php");
+        header("Location: batallas.php");
     } else {
     ?>
         <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
