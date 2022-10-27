@@ -1,6 +1,6 @@
 <!-- Archivo de configuración multiidioma -->
 <?php
-session_start();
+//session_start();
 /*Se realiza una instrucción if donde, si se ha solicitado $_GET['lang'],
 la agrega y vuelve a cargar la página*/
 if (isset($_GET['lang'])) {

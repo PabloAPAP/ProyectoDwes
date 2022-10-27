@@ -1,5 +1,7 @@
 <?php
 require "confIdioma.php";
+include 'scripts/funciones.php';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,6 @@ require "confIdioma.php";
 <body id="page">
     <?php
     //Validación del formulario
-    include 'scripts/funciones.php';
     $nombreError =  $passError = $pass2Error = $emailError = $fechaError = $imagenError = $errorVacios = "";
     $nombreUsuarioOK = $passwordOK = $password2OK = $emailOK = $fechaNacOK = $imagenAvatarOK = "";
     if (!empty($_POST)) {
@@ -33,7 +34,7 @@ require "confIdioma.php";
 
         // Comprobamos que los campos no están vacíos y que validan
         if (!empty($nombreUsuario)) {
-            //si buscamos al usuario y devuleve un numero quiere decir que existe
+            //Si buscamos al usuario y devuleve un numero quiere decir que existe
             if (buscarUsuario($nombreUsuario) !== false) {
                 $nombreError = $lang['errorNomExiste'];
                 $algunError = true;

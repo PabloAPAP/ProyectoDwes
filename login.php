@@ -1,3 +1,6 @@
+<?php include 'scripts/funciones.php';
+    require "confIdioma.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -11,9 +14,7 @@
 
 <body>
     <?php
-    include 'scripts/funciones.php';
-    require "confIdioma.php";
-
+    
     $_usuario_err = "";
     $_password_err = "";
 
@@ -25,6 +26,7 @@
         if (empty($usuario)) {
             $_usuario_err =  $lang['errorNoUsu'];
         } else {
+            //Buscamos si el usuario está registrado
             if (buscarUsuario($usuario) === false) {
                 $_usuario_err = $lang['errorUsuReg'];
                 $usuarioBBDD = "";
@@ -42,12 +44,9 @@
             if ($usuario === $usuarioBBDD && sha1($password) === $passBBDD) {
                 //Iniciamos la sesion
                 session_start();
-                //relleno con los datos del usuario
+                //Rellenamos con los datos del usuario
                 $_SESSION["usuario"] = $usuario;
                 $_SESSION["pass"] = $password;
-                var_dump($_SESSION);
-                //$_SESSION['equipo'] = $_SERVER['REMOTE_ADDR']; 
-                //header("Location: batalla.php");
             } else {
                 $_password_err = "Contraseña incorrecta";
             }

@@ -16,7 +16,6 @@ require "confIdioma.php";
     if (!isset($_SESSION["usuario"])) {
         session_start();
     }
-
     $nombreUsuario = $_SESSION['usuario'];
     ?>
     <header>

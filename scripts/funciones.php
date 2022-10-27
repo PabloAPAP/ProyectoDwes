@@ -25,7 +25,6 @@ function validar($datoAValidar, $expresionRegular)
 /**
  * Funcion validarFecha valida una fecha.
  * @param fecha fecha que se quiere validar.
- * 
  * @return resultado true o false en funcion de si valida la fecha o no.
  */
 function validarFecha($fecha)
@@ -57,7 +56,7 @@ function validarFecha($fecha)
 /**
  * Esta función busca en el fichero donde tenemos almacenadas las credenciales.
  * @param nombreABuscar es el nombre que se quiere comprobar
- * Devuelve el nombre si existe.
+ * Devuelve el numero de linea donde está el nombre buscado.
  */
 function buscarUsuario($nombreABuscar)
 {

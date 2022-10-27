@@ -11,8 +11,8 @@
 </head>
 
 <body>
-	<a href="funcioncookie.php?usertheme=style"><img src="Anochecer32.ico"></a>
-	<a href="funcioncookie.php?usertheme=style2"><img src="Amanecer.png" width="32px" height="32px"></a>
+	<a href="funcioncookie.php?usertheme=./css/style"><img src="./media/Anochecer32.ico"></a>
+	<a href="funcioncookie.php?usertheme=./css/styleDarkMode"><img src="./media/Amanecer.png" width="32px" height="32px"></a>
 </body>
 
 </html>
