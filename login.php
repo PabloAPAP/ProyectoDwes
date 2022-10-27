@@ -39,7 +39,7 @@
         if (empty($password)) {
             $_password_err = $lang['errorNoPass'];
         } else {
-            if ($usuario === $usuarioBBDD && $password === $passBBDD) {
+            if ($usuario === $usuarioBBDD && sha1($password) === $passBBDD) {
                 //Iniciamos la sesion
                 session_start();
                 //relleno con los datos del usuario
@@ -69,7 +69,7 @@
             <span class="error"><?php echo $_password_err; ?></span>
             <input type="password" name="password" id="password" placeholder=<?php echo $lang['password'] ?>></span><br>
             <input type="submit" value=<?php echo $lang['acceder'] ?>>
-            <p style="text-decoration-line: underline ;"><a href='registro.php'>¿Aún no tienes cuenta? Regístrate</a></p>
+            <p style="text-decoration-line: underline ;"><a href='registro.php'><?php echo $lang["registrarse"]?></a></p>
         </form>
 </body>
 

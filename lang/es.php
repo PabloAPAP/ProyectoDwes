@@ -16,6 +16,12 @@
     $lang['imgPerfil'] = "Imagen de perfil";
     $lang['required'] = "Los campos marcados con * son obligatorios";
     $lang['loguearse'] = "¿Ya tienes cuenta? Accede";
+    $lang['bienvenida'] = "Bienvenid@";
+    $lang['batalla'] = "Batalla de productos";
+    $lang["saludo"] = "Hola";
+    $lang["cerrarSesion"] = "Cerrar Sesión";
+    $lang["registrarse"] = "¿Aún no tienes cuenta? Regístrate";
+
 //Varibles de errores
     $lang['errorNomExiste'] = "Ya existe un usuario con ese nombre";
     $lang['errorNom'] = "El campo 'Nombre de Usuario' es incorrecto";

@@ -11,7 +11,7 @@ require "confIdioma.php";
     <?php include './scripts/esqueleto.php';
     echo $_links; ?>
 
-    <title>Regístrate</title>
+    <title><?php echo $lang['titRegis'] ?></title>
 </head>
 
 <body id="page">
@@ -112,54 +112,54 @@ require "confIdioma.php";
 
         //Si no hay errores entra al login y mete el usuario y la contraseña en el registro.
         if (!$algunError) {
-            $passCifrado  = md5($password, PASSWORD_DEFAULT);
+            $passCifrado  = sha1($password);
             $ficheroContrasenas = fopen("acceso/usuariosPassword.txt", "a");
             fwrite($ficheroContrasenas, "$nombreUsuario|$passCifrado" . PHP_EOL);
             fclose($ficheroContrasenas);
     ?>
             <form class="login-form">
-                <h1>Bienvenid@ <?php echo $nombreUsuario?></h1>
+                <h1><?php echo $lang["bienvenida"]?> <?php echo $nombreUsuario ?></h1>
                 <a href="login.php"><input type="button" value="Inicia sesión" name="submit" /></a>
             </form>
         <?php
         } else { ?>
             <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">
-                <h1>Regístrate</h1>
+                <h1><?php echo $lang['registro'] ?></h1>
 
-                <p>Nombre de Usuario *</p>
+                <p><?php echo $lang['nomUsu'] ?> *</p>
                 <span class="error"><?php echo $nombreError; ?></span>
                 <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
 
-                <p>Contraseña *</p>
+                <p><?php echo $lang['password'] ?> *</p>
                 <span class="error"><?php echo $passError; ?></span>
                 <div class="btnAlinear">
                     <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
                     <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                 </div>
 
-                <p>Repite la contraseña *</p>
+                <p><?php echo $lang['repPassword'] ?> *</p>
                 <span class="error"><?php echo $pass2Error; ?></span>
                 <div class="btnAlinear">
                     <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
                     <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                 </div>
 
-                <p>Correo electrónico *</p>
+                <p><?php echo $lang['email'] ?> *</p>
                 <span class="error"><?php echo $emailError; ?></span>
                 <input type="text" name="email" value="<?php echo $emailOK; ?>">
 
-                <p> Fecha de nacimiento *</p>
+                <p> <?php echo $lang['fechNac'] ?> *</p>
                 <span class="error"><?php echo $fechaError; ?></span>
                 <input type="date" name="fechaNac" value="<?php echo $fechaNacOK; ?>">
 
-                <p>Imagen de perfil *</p>
+                <p><?php echo $lang['imgPerfil'] ?> *</p>
                 <span class="error"><?php echo $imagenError; ?></span>
                 <input type="file" id="avatar" name="imagenAvatar" accept="image/png, image/gif, image/jpeg" value="<?php echo $imagenAvatarOK; ?>" />
 
-                <h6>Los campos marcados con * son obligatorios</h6>
-                <input type="submit" value="Registrarse" name="submit" />
+                <h6><?php echo $lang['required'] ?></h6>
+                <input type="submit" value=<?php echo $lang['registro'] ?>>
                 <span class="error"><?php echo $errorVacios; ?></span>
-                <p style="text-decoration-line: underline ;"><a href='login.php'>¿Ya tienes cuenta? Logueate</a></p>
+                <p style="text-decoration-line: underline ;"><a href='login.php'><?php echo $lang['loguearse'] ?></a></p>
             </form>
 
             <script type="text/javascript">
@@ -186,42 +186,42 @@ require "confIdioma.php";
         ?>
 
         <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" enctype="multipart/form-data" class="login-form">
-            <h1>Regístrate</h1>
+            <h1><?php echo $lang['registro'] ?></h1>
 
-            <p>Nombre de Usuario *</p>
+            <p><?php echo $lang['nomUsu'] ?> *</p>
             <span class="error"><?php echo $nombreError; ?></span>
             <input type="text" name="nombreUsuario" value="<?php echo $nombreUsuarioOK; ?>">
 
-            <p>Contraseña *</p>
+            <p><?php echo $lang['password'] ?> *</p>
             <span class="error"><?php echo $passError; ?></span>
             <div class="btnAlinear">
                 <input type="password" class="form-control mb-0" id="password1" name="password1" value="<?php echo $passwordOK; ?>">
                 <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
             </div>
 
-            <p>Repite la contraseña *</p>
+            <p><?php echo $lang['repPassword'] ?> *</p>
             <span class="error"><?php echo $pass2Error; ?></span>
             <div class="btnAlinear">
                 <input type="password" class="form-control mb-0" id="password2" name="password2" value="<?php echo $password2OK; ?>">
                 <button id="show_password" class="btnMostrar" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
             </div>
 
-            <p>Correo electrónico *</p>
+            <p><?php echo $lang['email'] ?> *</p>
             <span class="error"><?php echo $emailError; ?></span>
             <input type="text" name="email" value="<?php echo $emailOK; ?>">
 
-            <p> Fecha de nacimiento *</p>
+            <p> <?php echo $lang['fechNac'] ?> *</p>
             <span class="error"><?php echo $fechaError; ?></span>
             <input type="date" name="fechaNac" value="<?php echo $fechaNacOK; ?>">
 
-            <p>Imagen de perfil *</p>
+            <p><?php echo $lang['imgPerfil'] ?> *</p>
             <span class="error"><?php echo $imagenError; ?></span>
             <input type="file" id="avatar" name="imagenAvatar" accept="image/png, image/gif, image/jpeg" value="<?php echo $imagenAvatarOK; ?>" />
 
-            <h6>Los campos marcados con * son obligatorios</h6>
-            <input type="submit" value="Registrarse" name="submit" />
+            <h6><?php echo $lang['required'] ?></h6>
+            <input type="submit" value=<?php echo $lang['registro'] ?>>
             <span class="error"><?php echo $errorVacios; ?></span>
-            <p style="text-decoration-line: underline ;"><a href='login.php'>¿Ya tienes cuenta? Logueate</a></p>
+            <p style="text-decoration-line: underline ;"><a href='login.php'><?php echo $lang['loguearse'] ?></a></p>
         </form>
 
         <script type="text/javascript">
