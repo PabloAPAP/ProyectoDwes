@@ -119,7 +119,7 @@ require "confIdioma.php";
     ?>
             <form class="login-form">
                 <h1><?php echo $lang["bienvenida"]?> <?php echo $nombreUsuario ?></h1>
-                <a href="login.php"><input type="button" value="Inicia sesión" name="submit" /></a>
+                <a href="login.php"><input type="button" value=<?php echo $lang['acceder'] ?> name="submit" /></a>
             </form>
         <?php
         } else { ?>
