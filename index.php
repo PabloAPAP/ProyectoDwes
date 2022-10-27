@@ -24,8 +24,8 @@ require "confIdioma.php";
     <a href="index.php?lang=esp"><img src="media/flags/espana.png" alt="<?= $lang['esp']; ?>" title="<?= $lang['esp']; ?>" class="esp" /></a>
     <!--Botones temas-->
     <div class="container-btn-mode" style="display: flex;">
-        <a href="./prueba/funcioncookie.php?usertheme=./css/style"><img class="imgsol" src= "./media/tema/sol.png"></a>
-        <a href="./prueba/funcioncookie.php?usertheme=./css/styleDarkMode"><img class="imgluna" src="./media/tema/luna.png"></a>
+        <a href="./scripts/funcioncookie.php?usertheme=./css/style"><img class="imgsol" src= "./media/tema/sol.png"></a>
+        <a href="./scripts/funcioncookie.php?usertheme=./css/styleDarkMode"><img class="imgluna" src="./media/tema/luna.png"></a>
     </div>
     <?php
     //Cargamos las cookies. Caducan en 1 año
