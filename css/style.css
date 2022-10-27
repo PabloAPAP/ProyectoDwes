@@ -1,8 +1,7 @@
-
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .error {
   color: #ff0000;
@@ -108,26 +107,38 @@ input {
   cursor: pointer;
   z-index: 2;
   font-size: 0;
+  background-color: rgb(73, 73, 192);
+  border-radius: 100px;
+  border: 2px solid black;
 }
 
-form button{
-    width: 100%;
-    background: #1f53c5;
-    border: none;
-    padding: 12px;
-    color: white;
-    margin: 16px 0;
-    font-size: 16px;
-}
-input{
-    color:white;
-}
-img.esp{
-    width: 40px;
-    height: auto;
-}
-img.eng{
-    width: 40px;
-    height: auto;
+.imgsol {
+  width: 27px;
+  height: 27px;
 }
 
+.imgluna {
+  width: 28px;
+  height: 28px;
+}
+
+form button {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+input {
+  color: white;
+}
+img.esp {
+  width: 40px;
+  height: auto;
+}
+img.eng {
+  width: 40px;
+  height: auto;
+}
