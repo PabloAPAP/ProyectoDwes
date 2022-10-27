@@ -6,7 +6,7 @@
 /*VALIDA_USUARIO: Acepta letras de la A a la Z (mayusculas y minusculas),
  numeros del 0 al 9 y los caracteres "." y "-"
  */
-define("VALIDA_USUARIO", "/[\w.\-]{3,25}/A"); 
+define("VALIDA_USUARIO", "/[\w.\-]{3,25}/A");
 
 /*VALIDA_PASSWORD: Debe contener al menos 8 caracteres, que deberán ser
 una mayuscula, una minuscula y un numero.

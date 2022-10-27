@@ -1,25 +1,31 @@
-body{
-  background-color: rgb(54, 53, 53);
+body {
+    background-color: rgb(54, 53, 53);
 }
-*{
+
+* {
     margin: 0;
-    padding:0;
+    padding: 0;
     box-sizing: border-box;
 }
+
+div.a {
+    text-align: center;
+}
+
 .error {
     color: #FF0000;
 }
 
-.btnAlinear{
+.btnAlinear {
     line-height: 0px;
-  display:flex;
-  align-items:Center;
+    display: flex;
+    align-items: Center;
 }
 
-.btnMostrar{
-width: 10%;
-border-radius: 4px;
-background:#24303c;
+.btnMostrar {
+    width: 10%;
+    border-radius: 4px;
+    background: #24303c;
 }
 
 .login-form {
@@ -29,18 +35,19 @@ background:#24303c;
     margin: auto;
     margin-top: 4px;
     font-family: Arial, Helvetica, sans-serif;
-    color:white;
+    color: white;
     box-shadow: 7px 13px 37px #000;
 }
+
 .login-form h1 {
     font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.login-form input{
+.login-form input {
     width: 100%;
-    background:#24303c;
+    background: #24303c;
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;
@@ -48,30 +55,24 @@ background:#24303c;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
-.login-form input{
-    width: 100%;
-    background:#24303c;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid #1f53c5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-}
-.login-form p{
+
+.login-form p {
     height: 40px;
     text-align: left;
     font-size: 18px;
 }
-.login-form a{
+
+.login-form a {
     color: white;
     text-decoration: none;
 }
-.login-form a:hover{
+
+.login-form a:hover {
     color: white;
     text-decoration: underline;
 }
-.login-form input[type=submit]{
+
+.login-form input[type=submit] {
     width: 100%;
     background: #1f53c5;
     border: none;
@@ -81,7 +82,7 @@ background:#24303c;
     font-size: 16px;
 }
 
-form button{
+form button {
     width: 100%;
     background: #1f53c5;
     border: none;
@@ -90,29 +91,30 @@ form button{
     margin: 16px 0;
     font-size: 16px;
 }
-input{
-    color:white;
+
+input {
+    color: white;
 }
 
 .container-btn-mode {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  cursor: pointer;
-  z-index: 2;
-  font-size: 0;
-  background-color:grey;
-  border-radius: 100px;
-  border: 2px solid white;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 0;
+    background-color: grey;
+    border-radius: 100px;
+    border: 2px solid white;
 }
 
 .imgsol {
-  border-radius: 1px;
-  width: 27px;
-  height: 27px;
+    border-radius: 1px;
+    width: 27px;
+    height: 27px;
 }
 
 .imgluna {
-  width: 28px;
-  height: 28px;
+    width: 28px;
+    height: 28px;
 }

@@ -1,11 +1,13 @@
-<?php 
-require "confIdioma.php";
+<?php
+include "./scripts/confIdioma.php";
 include 'scripts/funciones.php';
-if (!empty($_COOKIE['_cookietema'])) $style = $_COOKIE['_cookietema'];
-if (empty($_COOKIE['_cookietema'])) $style = "style";
+if (!empty($_COOKIE['tema'])) $style = $_COOKIE['tema'];
+if (empty($_COOKIE['tema'])) $style = "style";
+include './scripts/enlaces.php';
+echo $_links;
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -17,8 +19,6 @@ if (empty($_COOKIE['_cookietema'])) $style = "style";
 
 <body>
     <?php
-
-
     $_usuario_err = "";
     $_password_err = "";
 
@@ -56,13 +56,12 @@ if (empty($_COOKIE['_cookietema'])) $style = "style";
             }
         }
     }
-    //Si ya tenemos la sesion iniciada nos manda a la pagina de las batallas
+    //Si ya tenemos la sesion iniciada nos manda a la pagina de inicio
     if (isset($_SESSION["usuario"])) {
-        header("Location: batalla.php");
+        header("Location: index.php");
     } else {
         //Muestro el formulario de inicio
     ?>
-
         <form action='<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>' method="post" class="login-form">
             <h1><?php echo $lang['ini'] ?></h1>
             <p><?php echo $lang['nomUsu'] ?></p>
@@ -75,7 +74,6 @@ if (empty($_COOKIE['_cookietema'])) $style = "style";
             <p style="text-decoration-line: underline ;"><a href='registro.php'><?php echo $lang["registrarse"] ?></a></p>
         </form>
 </body>
-
 <?php   } ?>
 
 </html>

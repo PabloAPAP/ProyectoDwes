@@ -1,13 +1,6 @@
-El código podría estar mucho más comentado.
+
 
 ACTUAL
-
-**almacenar informacion usuario en fichero en servidor. Fichero protegido
-**Validar login contra el fichero.
-Cargar informacion usuario sesion y colores e idiomas
-colores  e idioma cookies
-**Si ha hecho login mostrar boton logout
-**index.php idiomas y modos luces
 
 
 PROBLEMAS
