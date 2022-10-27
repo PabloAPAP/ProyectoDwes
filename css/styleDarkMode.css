@@ -1,5 +1,5 @@
 body{
-  background-color: black;
+  background-color: rgb(54, 53, 53);
 }
 *{
     margin: 0;
@@ -94,12 +94,25 @@ input{
     color:white;
 }
 
-.container-btn-mode{
-    position: absolute;
-    top:20px;
-    right: 30px;
-    cursor: pointer;
-    z-index: 2;
-    font-size:0;
-  }
- 
+.container-btn-mode {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 0;
+  background-color:grey;
+  border-radius: 100px;
+  border: 2px solid white;
+}
+
+.imgsol {
+  border-radius: 1px;
+  width: 27px;
+  height: 27px;
+}
+
+.imgluna {
+  width: 28px;
+  height: 28px;
+}
