@@ -3,7 +3,9 @@
 ?>
 <!DOCTYPE html>
 <html>
-
+    <?php
+    require "confIdioma.php";
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +16,13 @@
 
 <body>
     <?php
+<<<<<<< HEAD
     
+=======
+    include 'scripts/funciones.php';
+    
+
+>>>>>>> b460cc5a20aa14715c1fcdb2aff759ae0887a1ae
     $_usuario_err = "";
     $_password_err = "";
 

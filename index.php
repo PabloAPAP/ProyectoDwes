@@ -3,7 +3,9 @@ require "confIdioma.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+    require "confIdioma.php";
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +21,6 @@ require "confIdioma.php";
 </head>
 
 <body id="page" class="wrapper">
-
     <!--Botones de idiomas-->
     <a href="index.php?lang=eng"><img src="media/flags/england.png" alt="<?= $lang['eng']; ?>" title="<?= $lang['eng']; ?>" class="eng" /></a>
     <a href="index.php?lang=esp"><img src="media/flags/espana.png" alt="<?= $lang['esp']; ?>" title="<?= $lang['esp']; ?>" class="esp" /></a>
