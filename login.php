@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+    <?php
+    require "confIdioma.php";
+    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +14,7 @@
 <body>
     <?php
     include 'scripts/funciones.php';
-    require "confIdioma.php";
+    
 
     $_usuario_err = "";
     $_password_err = "";
