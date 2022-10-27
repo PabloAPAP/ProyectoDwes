@@ -152,7 +152,7 @@ input {
   background-color: #1a1c1e;
   border: 1px solid white;
   color: white;
-}
+}/*FIN BOTON DIA/NOCHE*/
 
 form button{
     width: 100%;
@@ -174,4 +174,4 @@ img.eng{
     width: 40px;
     height: auto;
 }
-/*FIN BOTON DIA/NOCHE*/
+
