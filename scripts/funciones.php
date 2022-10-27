@@ -54,32 +54,34 @@ function validarFecha($fecha)
     return $resultado;
 }
 
-
+/**
+ * Esta función busca en el fichero donde tenemos almacenadas las credenciales.
+ * @param nombreABuscar es el nombre que se quiere comprobar
+ * Devuelve el nombre si existe.
+ */
 function buscarUsuario($nombreABuscar)
 {
     $archivo = file_get_contents('acceso/usuariosPassword.txt');
     return strpos($archivo, $nombreABuscar);
 }
-
+/**
+ * Esta funcion recupera los datos del usuario del fichero
+ * @param nombreABuscar es el nombre del usuario del cual se quieren los datos.
+ * @return arrayDatos es el array con los datos del usuario
+ */
 function recuperarUsuario($nombreABuscar)
 {
-
-    $archivo = fopen("acceso/usuariosPassword.txt", "r");
-
+    //Abrimos el archivo
+    fopen("acceso/usuariosPassword.txt", "r");
     //comprobamos que el archivo exista
     $db_txt = 'acceso/usuariosPassword.txt';
-
     //cargamos el archivo a la variable como tipo array
     $lineas = file($db_txt);
-    //lineas contendra un array: 
-    //array(0 => 'pedro:123456', 1 => 'juan:mipass',2 =>'pamela:estapassesmuylargaynolasabras');
     //recorremos el array
     foreach ($lineas as $linea) {
-        //dividimos la linea por el separador ':'
-        //usamos trim para quitar los espacios como el salto de linea y retorno de carro
-        //luego divimos la linea con explode dandole como limite 2 , para haci decir que si 
-        //encuentra mas ':' los ignore
-        //por ultimo list solo asigna los valores del array a variables comunes
+        //dividimos la linea por el separador '|'
+        //usamos trim() para quitar los espacios vacios y los saltos de linea
+        //luego divimos la linea con explode dandole como limite 2 , para así decir que si encuentra mas '|' los ignore.
         list($user, $pass) = explode("|", trim($linea), 2);
         //comparamos que el user y la pass no sean vacios o que contengan strings
         if (is_string($user)  &&  is_string($pass)) {
