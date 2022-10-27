@@ -1,7 +1,10 @@
 <?php
 require "confIdioma.php";
 include 'scripts/funciones.php';
-
+if (!empty($_COOKIE['_cookietema'])) $style = $_COOKIE['_cookietema'];
+if (empty($_COOKIE['_cookietema'])) $style = "style";
+include './scripts/esqueleto.php';
+    echo $_links; 
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,10 +13,11 @@ include 'scripts/funciones.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include './scripts/esqueleto.php';
-    echo $_links; ?>
-
+    <link rel="stylesheet" href="<?php echo $style ?>.css" type="text/css" media="all">
     <title><?php echo $lang['titRegis'] ?></title>
+   
+
+    
 </head>
 
 <body id="page">
@@ -33,7 +37,7 @@ include 'scripts/funciones.php';
         $imagenAvatar = $_FILES["imagenAvatar"];
 
         // Comprobamos que los campos no están vacíos y que validan
-       
+
         if (!empty($nombreUsuario)) {
             //Si buscamos al usuario y devuleve un numero quiere decir que existe
             if (buscarUsuario($nombreUsuario) !== false) {
@@ -120,7 +124,7 @@ include 'scripts/funciones.php';
             fclose($ficheroContrasenas);
     ?>
             <form class="login-form">
-                <h1><?php echo $lang["bienvenida"]?> <?php echo $nombreUsuario ?></h1>
+                <h1><?php echo $lang["bienvenida"] ?> <?php echo $nombreUsuario ?></h1>
                 <a href="login.php"><input type="button" value=<?php echo $lang['acceder'] ?> name="submit" /></a>
             </form>
         <?php
